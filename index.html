@@ -1,164 +1,164 @@
 
-!DOCTYPE html
-html
-head
-  meta charset=utf-8
-  meta name=viewport content=initial-scale=1, maximum-scale=1,user-scalable=no
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
 
-  titleCOL - GIStitle
-  link rel=apple-touch-icon sizes=180x180 href=imagesapple-touch-icon.png
-  link rel=icon type=imagepng sizes=32x32 href=imagesfavicon-32x32.png
-  link rel=icon type=imagepng sizes=16x16 href=imagesfavicon-16x16.png
-  link rel=manifest href=imagessite201808021112.webmanifest.json
-  link rel=mask-icon href=imagessafari-pinned-tab.svg color=#5bbad5
-  meta name=msapplication-TileColor content=#603cba
-  meta name=theme-color content=#ffffff
+  <title>COL - GIS</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site201808021112.webmanifest.json">
+  <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#603cba">
+  <meta name="theme-color" content="#ffffff">
   
-  !-- google fonts --
-  link href=httpsfonts.googleapis.comcssfamily=Roboto rel=stylesheet
-  link href=httpsfonts.googleapis.comcssfamily=Product+Sans400,400i,700,700i rel=stylesheet type=textcss
-  link href=httpsfonts.googleapis.comiconfamily=Material+Icons rel=stylesheet
-  link href=httpsfonts.googleapis.comcssfamily=Product+Sans400,400i,700,700i rel=stylesheet type=textcss
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i" rel="stylesheet" type="text/css">
   
-  !-- styles --
-  link rel=stylesheet href=httpscdnjs.cloudflare.comajaxlibsmaterialize1.0.0-rc.2cssmaterialize.min.css
+  <!-- styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
-  !-- materialize --
-  script src=httpscdnjs.cloudflare.comajaxlibsmaterialize1.0.0-rc.2jsmaterialize.min.jsscript
+  <!-- materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
  
-  style  
+  <style>  
     html,body{
-        overflowhidden;
-        margin 0;
-        padding 0;
-        height 100%;
-        width 100%;
-        overflow hidden;
+        overflow:hidden;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
     }	
     #mainContainer{
-        height calc(100vh - 64px);
-        overflow hidden;
-        padding 0;
+        height: calc(100vh - 64px);
+        overflow: hidden;
+        padding: 0;
     }
 	#viewDiv {
-      padding 0;
-      margin 0;
-      height calc(100vh - 64px);
-	  background-color gray;
+      padding: 0;
+      margin: 0;
+      height: calc(100vh - 64px);
+	  background-color: gray;
     }
     
     .active2D {
-      background-color #5E2590;
+      background-color: #5E2590;
     }
     #expandDiv{
-      position absolute;
-      bottom50;
-      left50;
+      position: absolute;
+      bottom:50;
+      left:50;
     }
 
 	#layersContainerLarge{
-	  padding 1em;
-      margin 0;
-      height 100%;
-      overflowhidden;
-	  background-color whitesmoke;
+	  padding: 1em;
+      margin: 0;
+      height: 100%;
+      overflow:hidden;
+	  background-color: whitesmoke;
 	}
-	li.active  div.collapsible-header{
-		background-color #5E2590 !important;
-		color white !important;
+	li.active > div.collapsible-header{
+		background-color: #5E2590 !important;
+		color: white !important;
 	}
     .collapsible-body{
-        max-height 300px;
-        overflow-y scroll;
+        max-height: 300px;
+        overflow-y: scroll;
     }
     .progress{
-        position absolute;
-        top 52px;
-        left 0px;
-        width 100%;
+        position: absolute;
+        top: 52px;
+        left: 0px;
+        width: 100%;
     }
-    .tabs .tab afocus, .tabs .tab afocus.active{
-        background-color #f5f5f5;
+    .tabs .tab a:focus, .tabs .tab a:focus.active{
+        background-color: #f5f5f5;
     }
     .map-type-button{        
-        font-size 12px;
-        background-color #fff;
-        color #6e6e6e;
-        padding 0.5em 1em;
-        margin 0;
-        overflow hidden;
-        cursor pointer;
-        text-align center;
-        display inline;
-        justify-content center;
-        align-items center;
-        transition background-color 125ms ease-in-out;
-        border-left solid 1px gainsboro;
+        font-size: 12px;
+        background-color: #fff;
+        color: #6e6e6e;
+        padding: 0.5em 1em;
+        margin: 0;
+        overflow: hidden;
+        cursor: pointer;
+        text-align: center;
+        display: inline;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 125ms ease-in-out;
+        border-left: solid 1px gainsboro;
     }
-    .esri-input esri-search__input, input[type=text]not(.browser-default){
-        height 32px !important; override materializecss
-        padding 0 0.5em !important; override materializecss
-        margin 0 !important; override materializecss
-        font-size 0.9em !important; override materializecss
+    .esri-input esri-search__input, input[type=text]:not(.browser-default){
+        height: 32px !important; /*override materializecss*/
+        padding: 0 0.5em !important; /*override materializecss*/
+        margin: 0 !important; /*override materializecss*/
+        font-size: 0.9em !important; /*override materializecss*/
     }
     div.esri-search__sources-button{
-        displaynone !important;
+        display:none !important;
     }
-  style
+  </style>
   
-  script src=scriptsdragdroptouch.jsscript
-  link rel=stylesheet href=httpsjs.arcgis.com4.21esrithemeslightmain.css
-  script src=httpsjs.arcgis.com4.21script
+  <script src="scripts/dragdroptouch.js"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.21/"></script>
   
-  script
+  <script>
   
-	ArcGIS Javascript API - Dojo REQUIRE for libraries
+	//ArcGIS Javascript API - Dojo REQUIRE for libraries
     require([
-	  esriMap,
-      esriviewsMapView,
-      esriWebMap,
+	  "esri/Map",
+      "esri/views/MapView",
+      "esri/WebMap",
       
-      esriGraphic,
-      esrilayersGraphicsLayer,
+      "esri/Graphic",
+      "esri/layers/GraphicsLayer",
 
-      esrilayersMapImageLayer,	  
-      esrilayersWebTileLayer,
-      esrilayersTileLayer,
-      esrilayersFeatureLayer,
-      esrilayersVectorTileLayer,
-      esrilayerssupportLOD,
-      esrilayersLayer,
+      "esri/layers/MapImageLayer",	  
+      "esri/layers/WebTileLayer",
+      "esri/layers/TileLayer",
+      "esri/layers/FeatureLayer",
+      "esri/layers/VectorTileLayer",
+      "esri/layers/support/LOD",
+      "esri/layers/Layer",
 
-	  esrirequest,
-	  esriconfig,
-      esriBasemap,
+	  "esri/request",
+	  "esri/config",
+      "esri/Basemap",
       
-	  esriwidgetsBasemapGallery,
-	  esriwidgetsBasemapGallerysupportLocalBasemapsSource,
-	  esriwidgetsDistanceMeasurement2D,
-	  esriwidgetsAreaMeasurement2D,
-	  esriwidgetsPrint,
-      esriwidgetsExpand,
-      esriwidgetsSearch,
-      esriwidgetsLegend,
-      esriwidgetsCoordinateConversion,
-      esriwidgetsSketch,
-      esriwidgetsCompass,
+	  "esri/widgets/BasemapGallery",
+	  "esri/widgets/BasemapGallery/support/LocalBasemapsSource",
+	  "esri/widgets/DistanceMeasurement2D",
+	  "esri/widgets/AreaMeasurement2D",
+	  "esri/widgets/Print",
+      "esri/widgets/Expand",
+      "esri/widgets/Search",
+      "esri/widgets/Legend",
+      "esri/widgets/CoordinateConversion",
+      "esri/widgets/Sketch",
+      "esri/widgets/Compass",
 
-      esricorereactiveUtils,
-      esrirestlocator,
+      "esri/core/reactiveUtils",
+      "esri/rest/locator",
 
-      esriGraphic,
-      esrigeometrysupportwebMercatorUtils,
-      esriPopupTemplate,
-      esrirestsupportQuery,
+      "esri/Graphic",
+      "esri/geometry/support/webMercatorUtils",
+      "esri/PopupTemplate",
+      "esri/rest/support/Query",
 	  
-	  dojodom, 
-	  dojoon,  
-      dojoquery,
-      dojorequestxhr,
-	  dojodom-construct,
-      dojodomReady!
+	  "dojo/dom", 
+	  "dojo/on",  
+      "dojo/query",
+      "dojo/request/xhr",
+	  "dojo/dom-construct",
+      "dojo/domReady!"
 	  
     ], function(
       Map, MapView, WebMap,
@@ -171,23 +171,23 @@ head
     ) {	
         var APP = (function(){
             return {
-                data {                    
-                    map [],
-                    mapView [],
-                    mapZoom 13,
-                    basemap streets-navigation-vector,
-                    groups [],
-                    layers {},
-                    layersFromServer [],
-                    isMobile false,
-                    isEmployee false,
-                    activeWidget null,
-                    widgets {
-                        basemapGallery_BasemapSource []                        
+                data: {                    
+                    map: [],
+                    mapView: [],
+                    mapZoom: 13,
+                    basemap: "streets-navigation-vector",
+                    groups: [],
+                    layers: {},
+                    layersFromServer: [],
+                    isMobile: false,
+                    isEmployee: false,
+                    activeWidget: null,
+                    widgets: {
+                        basemapGallery_BasemapSource: []                        
                     },
-                    mostRecentAerialDate ''
+                    mostRecentAerialDate: ''
                 },
-                init function(){
+                init: function(){
                     var _app = this                    
                     _app.setIsMobile()
                     _app.createConfigs()
@@ -208,150 +208,150 @@ head
                     _app.setIsEmployee()
                     _app.get_GroupsList(
                         function(){
-                            _app.get_LayerList({avlOnly false,includeEmployeeLayers _app.data.isEmployee
+                            _app.get_LayerList({avlOnly: false,includeEmployeeLayers: _app.data.isEmployee
                         },
                         function(){                            
                             _app.settings.applyFromUrl()
                         })                        
                     })                 
                 },
-                createConfigs function(){
-                    Add domains that accept CORS
-                    esriConfig.request.corsEnabledServers.push(spreadsheets.google.com,query.cityoflewisville.com,adaptergis.cityoflewisville.com)
+                createConfigs: function(){
+                    //Add domains that accept CORS
+                    //esriConfig.request.corsEnabledServers.push("spreadsheets.google.com","query.cityoflewisville.com","adaptergis.cityoflewisville.com")
                 },
-                createMap function() {
+                createMap: function() {
                     var _app = this;
 
                     _app.data.map = new Map({
-                        basemap _app.data.basemap
+                        basemap: _app.data.basemap
                     });
 
                     _app.data.mapView = new MapView({
-                        container viewDiv,
-                        map _app.data.map,
-                        zoom _app.data.mapZoom,
-                        center [-96.9571323598633, 33.04304516100256],
-                        constraints {
-                            lods _app.LevelsOfDetail()
+                        container: "viewDiv",
+                        map: _app.data.map,
+                        zoom: _app.data.mapZoom,
+                        center: [-96.9571323598633, 33.04304516100256],
+                        constraints: {
+                            lods: _app.LevelsOfDetail()
                         }
                     });
                 },
-                createWidget_ProgressBar function(){
+                createWidget_ProgressBar: function(){
                     var _app = this
 
-                    _app.data.mapView.watch(updating,function(_event){
-                        query(.progress).style(display,(_event == true  block  none))
-                        document.querySelectorAll(.progress).forEach(function(node) {
-                            node.style.display = (_event == true  block  none);
+                    _app.data.mapView.watch("updating",function(_event){
+                        //query(".progress").style("display",(_event == true ? "block" : "none"))
+                        document.querySelectorAll(".progress").forEach(function(node) {
+                            node.style.display = (_event == true ? "block" : "none");
                         });
                     })
                 },
-                createWidget_MapTypeButtons function(){
+                createWidget_MapTypeButtons: function(){
                     var _app = this
 
                     var _mapTypeButtonUI = ''
-                    _mapTypeButtonUI += 'div'
-                    _mapTypeButtonUI += 'div class=map-type-button id=mapTypeToggle_MapMapdiv'
-                    _mapTypeButtonUI += 'div class=map-type-button id=mapTypeToggle_SatSatellitediv'
-                    _mapTypeButtonUI += 'div class=map-type-button id=mapTypeToggle_Lew title=Historical aerials are in the basemap widget Lewisville Aerialsdiv'
-                    _mapTypeButtonUI += 'div'
+                    _mapTypeButtonUI += '<div>'
+                    _mapTypeButtonUI += '<div class="map-type-button" id="mapTypeToggle_Map">Map</div>'
+                    _mapTypeButtonUI += '<div class="map-type-button" id="mapTypeToggle_Sat">Satellite</div>'
+                    _mapTypeButtonUI += '<div class="map-type-button" id="mapTypeToggle_Lew" title="Historical aerials are in the basemap widget ?">Lewisville Aerials</div>'
+                    _mapTypeButtonUI += '</div>'
 
                     var _mapButton = domConstruct.toDom(_mapTypeButtonUI)                    
                     
-                    Remove the zoom buttons
-                    _app.data.mapView.ui.add(_mapButton, top-left,0)
-                    _app.data.mapView.ui.move(zoom, bottom-left,1)
+                    //Remove the zoom buttons
+                    _app.data.mapView.ui.add(_mapButton, "top-left",0)
+                    _app.data.mapView.ui.move("zoom", "bottom-left",1)
                     
-                    mapTypeToggle_Map
-                    document.getElementById(mapTypeToggle_Map).onclick = function(){
+                    //mapTypeToggle_Map
+                    document.getElementById("mapTypeToggle_Map").onclick = function(){
                         _app.data.map.basemap = _app.data.basemap
                     }
-                    mapTypeToggle_Sat
-                    document.getElementById(mapTypeToggle_Sat).onclick = function(){
-                        _app.data.map.basemap = satellite
+                    //mapTypeToggle_Sat
+                    document.getElementById("mapTypeToggle_Sat").onclick = function(){
+                        _app.data.map.basemap = "satellite"
                     }                        
-                    mapTypeToggle_Lew
-                    document.getElementById(mapTypeToggle_Lew).onclick = function(){
-                        document.querySelector('[title=Lewisville Aerials (' +  _app.data.mostRecentAerialDate + ')]').click()
+                    //mapTypeToggle_Lew
+                    document.getElementById("mapTypeToggle_Lew").onclick = function(){
+                        document.querySelector('[title="Lewisville Aerials: (' +  _app.data.mostRecentAerialDate + ')"]').click()
                     }
                    
                 },
-                createWidget_Search function(){
+                createWidget_Search: function(){
                     var _app = this
 
-                    var parcels_url = 'httpsservices2.arcgis.comkXGqZY4GIOcEYxoFArcGISrestservicesParcels_HostedFeatureServer0'
+                    var parcels_url = 'https://services2.arcgis.com/kXGqZY4GIOcEYxoF/ArcGIS/rest/services/Parcels_Hosted/FeatureServer/0'
 
-                    var waterLines = 'httpsservices2.arcgis.comkXGqZY4GIOcEYxoFarcgisrestservicesWater_System_viewFeatureServer5'
-                    var waterLinePoints = 'httpsservices2.arcgis.comkXGqZY4GIOcEYxoFarcgisrestservicesWater_System_viewFeatureServer3'
-                    var fireHydrats = 'httpsservices2.arcgis.comkXGqZY4GIOcEYxoFarcgisrestservicesWater_System_viewFeatureServer1'
+                    var waterLines = 'https://services2.arcgis.com/kXGqZY4GIOcEYxoF/arcgis/rest/services/Water_System_view/FeatureServer/5'
+                    var waterLinePoints = 'https://services2.arcgis.com/kXGqZY4GIOcEYxoF/arcgis/rest/services/Water_System_view/FeatureServer/3'
+                    var fireHydrats = 'https://services2.arcgis.com/kXGqZY4GIOcEYxoF/arcgis/rest/services/Water_System_view/FeatureServer/1'
 
-                    var sewerLinePoints = 'httpsservices2.arcgis.comkXGqZY4GIOcEYxoFarcgisrestservicesSanitarySewer_viewFeatureServer0'
-                    var sewerLines = 'httpsservices2.arcgis.comkXGqZY4GIOcEYxoFarcgisrestservicesSanitarySewer_viewFeatureServer1'
+                    var sewerLinePoints = 'https://services2.arcgis.com/kXGqZY4GIOcEYxoF/arcgis/rest/services/SanitarySewer_view/FeatureServer/0'
+                    var sewerLines = 'https://services2.arcgis.com/kXGqZY4GIOcEYxoF/arcgis/rest/services/SanitarySewer_view/FeatureServer/1'
 
-                    var stormLinePoints = 'httpsservices2.arcgis.comkXGqZY4GIOcEYxoFArcGISrestservicesStorm_Lines_Points_viewFeatureServer1'
-                    var stormLines = 'httpsservices2.arcgis.comkXGqZY4GIOcEYxoFArcGISrestservicesStorm_Lines_Points_viewFeatureServer2'
+                    var stormLinePoints = 'https://services2.arcgis.com/kXGqZY4GIOcEYxoF/ArcGIS/rest/services/Storm_Lines_Points_view/FeatureServer/1'
+                    var stormLines = 'https://services2.arcgis.com/kXGqZY4GIOcEYxoF/ArcGIS/rest/services/Storm_Lines_Points_view/FeatureServer/2'
 
 
                     function createFeatureLayerSource(url, name, field) {
                     return {
-                        layer new FeatureLayer({
-                            url url,
-                            outFields []
+                        layer: new FeatureLayer({
+                            url: url,
+                            outFields: ["*"]
                         }),
-                        searchFields [field],
-                        displayField field,
-                        exactMatch false,
-                        outFields [],
-                        name name,
-                        placeholder Search  + name,
-                        maxResults 6,
-                        maxSuggestions 6,
-                        suggestionsEnabled true,
-                        minSuggestCharacters 0
+                        searchFields: [field],
+                        displayField: field,
+                        exactMatch: false,
+                        outFields: ["*"],
+                        name: name,
+                        placeholder: "Search " + name,
+                        maxResults: 6,
+                        maxSuggestions: 6,
+                        suggestionsEnabled: true,
+                        minSuggestCharacters: 0
                     };
                 }
                     
                     var sources = [
                     {
-                        url httpsgeocode.arcgis.comarcgisrestservicesWorldGeocodeServer,
-                        singleLineFieldName SingleLine,
-                        name ArcGIS World Geocoding Service,
-                        placeholder Address,
-                        maxResults 3,
-                        maxSuggestions 6,
-                        suggestionsEnabled false,
-                        minSuggestCharacters 0
+                        url: "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
+                        singleLineFieldName: "SingleLine",
+                        name: "ArcGIS World Geocoding Service",
+                        placeholder: "Address",
+                        maxResults: 3,
+                        maxSuggestions: 6,
+                        suggestionsEnabled: false,
+                        minSuggestCharacters: 0
                         }, 
 
-                        createFeatureLayerSource(parcels_url, Parcels, RNUMBER),
-                        createFeatureLayerSource(waterLines, Water Lines, FACILITYID),
-                        createFeatureLayerSource(waterLinePoints, Water Line Points, FACILITYID),
-                        createFeatureLayerSource(fireHydrats, Fire Hydrants, FACILITYID),
-                        createFeatureLayerSource(sewerLinePoints, Sewer Line Points, FACILITYID),
-                        createFeatureLayerSource(sewerLines, Sewer Lines, FACILITYID),
-                        createFeatureLayerSource(stormLinePoints, Storm Line Points, FACILITYID),
-                        createFeatureLayerSource(stormLines, Storm Lines, FACILITYID)
+                        createFeatureLayerSource(parcels_url, "Parcels", "RNUMBER"),
+                        createFeatureLayerSource(waterLines, "Water Lines", "FACILITYID"),
+                        createFeatureLayerSource(waterLinePoints, "Water Line Points", "FACILITYID"),
+                        createFeatureLayerSource(fireHydrats, "Fire Hydrants", "FACILITYID"),
+                        createFeatureLayerSource(sewerLinePoints, "Sewer Line Points", "FACILITYID"),
+                        createFeatureLayerSource(sewerLines, "Sewer Lines", "FACILITYID"),
+                        createFeatureLayerSource(stormLinePoints, "Storm Line Points", "FACILITYID"),
+                        createFeatureLayerSource(stormLines, "Storm Lines", "FACILITYID")
                     ];
 
 
-                     Search parcels by parcelId provided at the end of the URL
-                     Check if the URL has parcelid
+                    // Search parcels by parcelId provided at the end of the URL
+                    // Check if the URL has parcelid
                     if (window.location.search.toLowerCase().includes('parcelid')){
-                        console.log(parcelID provided.)
+                        console.log("parcelID provided.")
                         var _this = _app.settings
-                        parcel_id = _this.url.get(parcelid).toUpperCase()
+                        parcel_id = _this.url.get("parcelid").toUpperCase()
                         var parcel_layer = new FeatureLayer({
-                            url parcels_url,
-                            outFields [] 
+                            url: parcels_url,
+                            outFields: ["*"] 
                             });
 
-                        console.log(Parcel ID , parcel_id)
+                        console.log("Parcel ID ", parcel_id)
                         var query = parcel_layer.createQuery();
-                        query.where = RNUMBER = ' + parcel_id + '
-                        query.spatialRelationship = intersects;   this is the default
+                        query.where = "RNUMBER = '" + parcel_id + "'"
+                        query.spatialRelationship = "intersects";  // this is the default
                         query.returnGeometry = true;
-                        query.outFields = [  ];
-                        console.log(Query , query)
+                        query.outFields = [ "*" ];
+                        console.log("Query ", query)
 
 
                         parcel_layer.queryFeatures(query)
@@ -360,33 +360,33 @@ head
                                     _app.data.mapView.center = [response.features[0].geometry.extent.center.longitude, response.features[0].geometry.extent.center.latitude]
         
                                     var _rings = response.features[0].geometry.rings;  
-                                    console.log(rings length, _rings[0].length)
+                                    //console.log("rings length", _rings[0].length)
 
-                                     Create a polygon geometry
+                                    // Create a polygon geometry
                                     var _polygon = {
-                                        type polygon,  autocasts as new Polygon()
-                                        rings _rings
+                                        type: "polygon", // autocasts as new Polygon()
+                                        rings: _rings
                                     };
 
-                                     Create a symbol for rendering the graphic
+                                    // Create a symbol for rendering the graphic
                                     var _fillSymbol = {
-                                        type simple-fill,  autocasts as new SimpleFillSymbol()
-                                        color [227, 139, 79, 0.8],
-                                        outline {  autocasts as new SimpleLineSymbol()
-                                        color [255, 255, 255],
-                                        width 1
+                                        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+                                        color: [227, 139, 79, 0.8],
+                                        outline: { // autocasts as new SimpleLineSymbol()
+                                        color: [255, 255, 255],
+                                        width: 1
                                         }
                                     };                                
-                                     Add the geometry and symbol to a new graphic
+                                    // Add the geometry and symbol to a new graphic
                                     var _polygonGraphic = new Graphic({
-                                        geometry _polygon,
-                                        symbol _fillSymbol
+                                        geometry: _polygon,
+                                        symbol: _fillSymbol
                                     });
 
                                     _app.data.mapView.graphics.add(_polygonGraphic)
-                                    console.log('Parcel exists! ')
+                                    //console.log('Parcel exists! ')
 
-                                    if(_rings[0].length  25){
+                                    if(_rings[0].length > 25){
                                         _app.data.mapView.zoom = 17                                
                                     }
                                     else{
@@ -401,42 +401,42 @@ head
 
                     }
                     else{
-                         console.log(No parcel ID.)
+                        // console.log("No parcel ID.")
                         parcel_id = ''
                     } 
                     
                     var _searchWidget = new Search({
-                        view _app.data.mapView,
-                        sources sources,
-                        allPlaceholder Address or Parcel or FacilityID,
-                        id searchWidgetID,
-                        searchTerm parcel_id,
-                        resultGraphicEnabled true,
-                        withinViewEnabled true
+                        view: _app.data.mapView,
+                        sources: sources,
+                        allPlaceholder: "Address or Parcel or FacilityID",
+                        id: "searchWidgetID",
+                        searchTerm: parcel_id,
+                        resultGraphicEnabled: true,
+                        withinViewEnabled: true
                     })
 
-                     Add the search widget to the top right corner of the view
+                    // Add the search widget to the top right corner of the view
                     _app.data.mapView.ui.add(_searchWidget, {
-                        position top-right,
-                        index 0
+                        position: "top-right",
+                        index: 0
                     })
                     
-                    Mobile devices Hide input box until user clicks the search button
+                    //Mobile devices: Hide input box until user clicks the search button
                     if (_app.data.isMobile == true){                          
                         setTimeout(function(){   
-                            query(.esri-search__input-container).style(display,none)
-                            document.querySelectorAll(.esri-component.esri-search.esri-widget)[0].style.width = 32px
-                            query(.esri-component.esri-search.esri-widget).onclick(function(){
-                                query(.esri-search__input-container).style(display,block)
-                                query(.esri-component.esri-search.esri-widget).style(width,302px)
+                            query(".esri-search__input-container").style("display","none")
+                            document.querySelectorAll(".esri-component.esri-search.esri-widget")[0].style.width = "32px"
+                            query(".esri-component.esri-search.esri-widget").onclick(function(){
+                                query(".esri-search__input-container").style("display","block")
+                                query(".esri-component.esri-search.esri-widget").style("width","302px")
                             })
                         },1500)
                     }
 
-                     Materialize Tooltips
-                     _searchWidget.container.classList.add(tooltipped)
-                     _searchWidget.container.setAttribute(data-position,left)
-                     _searchWidget.container.setAttribute(data-tooltip,Find addresses or parcels or FacilityID )
+                     //Materialize Tooltips
+                     _searchWidget.container.classList.add("tooltipped")
+                     _searchWidget.container.setAttribute("data-position","left")
+                     _searchWidget.container.setAttribute("data-tooltip","Find addresses or parcels or FacilityID ?")
                     
                     if (window.M){
                         var _tooltips = document.querySelectorAll('.tooltipped')
@@ -444,154 +444,154 @@ head
                     }
 
                 },
-                createWidget_BasemapGallery function() {
+                createWidget_BasemapGallery: function() {
                     var _app = this;
 
                     _app.data.widgets.basemapGallery_BasemapSource = new LocalBasemapsSource({
-                        basemaps [
-                            Basemap.fromId(gray-vector),
-                            Basemap.fromId(streets-navigation-vector)
+                        basemaps: [
+                            Basemap.fromId("gray-vector"),
+                            Basemap.fromId("streets-navigation-vector")
                         ]
                     });
 
                     var _basemapGallery = new BasemapGallery({
-                        view _app.data.mapView,
-                        container document.createElement(div),
-                        source _app.data.widgets.basemapGallery_BasemapSource
+                        view: _app.data.mapView,
+                        container: document.createElement("div"),
+                        source: _app.data.widgets.basemapGallery_BasemapSource
                     });
 
                     var _expand = new Expand({
-                        view _app.data.mapView,
-                        content _basemapGallery.container,
-                        expandIconClass esri-icon-basemap,
-                        expandTooltip Aerials and Basemaps
+                        view: _app.data.mapView,
+                        content: _basemapGallery.container,
+                        expandIconClass: "esri-icon-basemap",
+                        expandTooltip: "Aerials and Basemaps"
                     });
 
                     _app.data.mapView.ui.add(_expand, {
-                        position top-right,
-                        index 1
+                        position: "top-right",
+                        index: 1
                     });
 
-                     Materialize Tooltips
-                    _expand.container.classList.add(tooltipped);
-                    _expand.container.setAttribute(data-position, left);
-                    _expand.container.setAttribute(data-tooltip, BasemapsAerials );
+                    // Materialize Tooltips
+                    _expand.container.classList.add("tooltipped");
+                    _expand.container.setAttribute("data-position", "left");
+                    _expand.container.setAttribute("data-tooltip", "Basemaps/Aerials ?");
                     
                     if (window.M) {
                         var _tooltips = document.querySelectorAll('.tooltipped');
                         var _tooltips_instances = M.Tooltip.init(_tooltips);
                     }
                 },
-                createWidget_Legend function(){
+                createWidget_Legend: function(){
                     var _app = this
 
                     var _expand = new Expand({
-                        content new Legend({
-                            view _app.data.mapView,
-                            style classic  other styles include 'classic'
+                        content: new Legend({
+                            view: _app.data.mapView,
+                            style: "classic" // other styles include 'classic'
                         }),
-                        view _app.data.mapView,
-                        expanded false
+                        view: _app.data.mapView,
+                        expanded: false
                     });
-                    _app.data.mapView.ui.add(_expand, top-right);
+                    _app.data.mapView.ui.add(_expand, "top-right");
 
-                    Materialize Tooltips
-                    _expand.container.classList.add(tooltipped)
-                    _expand.container.setAttribute(data-position,left)
-                    _expand.container.setAttribute(data-tooltip,Legend )
+                    //Materialize Tooltips
+                    _expand.container.classList.add("tooltipped")
+                    _expand.container.setAttribute("data-position","left")
+                    _expand.container.setAttribute("data-tooltip","Legend ?")
                     
                     if (window.M){
                         var _tooltips = document.querySelectorAll('.tooltipped')
                         var _tooltips_instances = M.Tooltip.init(_tooltips)
                     }
                 },                                
-                createWidget_Marker function(){
+                createWidget_Marker: function(){
                     var _app = this
 
                     var _html = ''
-                        _html += 'div id=marker-button class=waves-effect esri-widget--button esri-widget esri-interactive tooltipped '
-                        _html += ' data-position=left data-tooltip=Get Coordinates '
-                        _html += ' span class=esri-icon-locatespan'
-                        _html += 'div'
+                        _html += '<div id="marker-button" class="waves-effect esri-widget--button esri-widget esri-interactive tooltipped" '
+                        _html += ' data-position="left" data-tooltip="Get Coordinates ?">'
+                        _html += ' <span class="esri-icon-locate"></span>'
+                        _html += '</div>'
 
                     var _domElement = domConstruct.toDom(_html)                        
-                    domConstruct.place(_domElement,viewDiv) 
+                    domConstruct.place(_domElement,"viewDiv") 
                     
-                    Materialize Tooltips
+                    //Materialize Tooltips
                     if (window.M){
                         var _tooltips = document.querySelectorAll('.tooltipped');
                         var _tooltips_instances = M.Tooltip.init(_tooltips);
                         var _thisTooltip = M.Tooltip.getInstance(_domElement)                        
                     }
 
-                    _app.data.mapView.ui.add(marker-button, top-right);
+                    _app.data.mapView.ui.add("marker-button", "top-right");
                 
-                    document.getElementById(marker-button).addEventListener(click,function(_event){
+                    document.getElementById("marker-button").addEventListener("click",function(_event){
                         var ccWidget = new CoordinateConversion({
-                            view _app.data.mapView
+                            view: _app.data.mapView
                         })
-                        _app.data.mapView.ui.add(ccWidget, bottom-left)
+                        _app.data.mapView.ui.add(ccWidget, "bottom-left")
                     })
                 },
                 createWidget_Sketch(){
                     var _app = this
                      
                     var _html = ''
-                         _html += 'div id=sketch-button class=waves-effect esri-widget--button esri-widget esri-interactive tooltipped '
-                         _html += ' data-position=left data-tooltip=Sketch '
-                         _html += ' span class=esri-icon-sketch-rectanglespan'
-                         _html += 'div'
+                         _html += '<div id="sketch-button" class="waves-effect esri-widget--button esri-widget esri-interactive tooltipped" '
+                         _html += ' data-position="left" data-tooltip="Sketch ?">'
+                         _html += ' <span class="esri-icon-sketch-rectangle"></span>'
+                         _html += '</div>'
 
                     var _domElement = domConstruct.toDom(_html)                        
-                    domConstruct.place(_domElement,viewDiv) 
+                    domConstruct.place(_domElement,"viewDiv") 
                     
-                    Materialize Tooltips
+                    //Materialize Tooltips
                     if (window.M){
                         var _tooltips = document.querySelectorAll('.tooltipped');
                         var _tooltips_instances = M.Tooltip.init(_tooltips);
                         var _thisTooltip = M.Tooltip.getInstance(_domElement)                        
                     }
 
-                    _app.data.mapView.ui.add(sketch-button, top-right);
-                     Add a new graphics layer to map for Sketch widget.
+                    _app.data.mapView.ui.add("sketch-button", "top-right");
+                    // Add a new graphics layer to map for Sketch widget.
                     var _graphichsLayer = new GraphicsLayer();
                     _app.data.map.layers.add(_graphichsLayer)
 
-                     draw
+                    // draw
                     function labelXY(x, y){
                         var _p = {
-                            type point,
-                            longitude x,
-                             To draw it over the marker.
-                            latitude y + 0.0002,
+                            type: "point",
+                            longitude: x,
+                            // To draw it over the marker.
+                            latitude: y + 0.0002,
                         }
                         var _s = {
-                            type text,
-                            color red,
-                            font {
-                                size 12,
-                                family sans-serif,
-                                weight bold,
+                            type: "text",
+                            color: "red",
+                            font: {
+                                size: 12,
+                                family: "sans-serif",
+                                weight: "bold",
                             },
-                            text X  + x.toFixed(6) + nY   + y.toFixed(6)
+                            text: "X: " + x.toFixed(6) + "\nY: "  + y.toFixed(6)
                         } 
 
-                        var _graphic = new Graphic({geometry _p, symbol _s})
+                        var _graphic = new Graphic({geometry: _p, symbol: _s})
                         _app.data.mapView.graphics.add(_graphic)
                     }
 
                 
-                    document.getElementById(sketch-button).addEventListener(click,function(_event){                        
+                    document.getElementById("sketch-button").addEventListener("click",function(_event){                        
                         var _sketchWidget = new Sketch({
-                            view _app.data.mapView,
-                            layer _graphichsLayer
+                            view: _app.data.mapView,
+                            layer: _graphichsLayer
                             })                        
 
-                        _app.data.mapView.ui.add(_sketchWidget, bottom-left)                        
+                        _app.data.mapView.ui.add(_sketchWidget, "bottom-left")                        
 
-                        _sketchWidget.on(create, function(event) {
+                        _sketchWidget.on("create", function(event) {
                             if (event.graphic){
-                                if(event.graphic.geometry.type == point){
+                                if(event.graphic.geometry.type == "point"){
                                 labelXY(event.graphic.geometry.longitude, event.graphic.geometry.latitude)
                                 }
                             }
@@ -602,80 +602,80 @@ head
                 createWidget_Compass(){
                     var _app = this
                     var compass = new Compass({
-                        view _app.data.mapView
+                        view: _app.data.mapView
                         });
 
-                     adds the compass to the top left corner of the MapView
-                    _app.data.mapView.ui.add(compass, top-left);
+                    // adds the compass to the top left corner of the MapView
+                    _app.data.mapView.ui.add(compass, "top-left");
 
                 },
-                createNearmapAerials function(){
-                    httpsdevelopers.arcgis.comjavascriptlatestapi-referenceesri-Map.html#basemap
-                    httpsgist.github.comizevaka32727112d4bd876d8c4bae2d96703b0b
+                createNearmapAerials: function(){
+                    //https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap
+                    //https://gist.github.com/izevaka/32727112d4bd876d8c4bae2d96703b0b
                     var _app = this
 
-                    Get aerial dates and api token
-                    var _url = httpsquery.cityoflewisville.comv2webservice=NearmapTicketAndDates
+                    //Get aerial dates and api token
+                    var _url = "https://query.cityoflewisville.com/v2/?webservice=NearmapTicketAndDates"
                     
                     esriRequest(_url).then(function(_response){		
 
                         var _ticket = _response.data[0][0].ticket
                         var _aerialDates = JSON.parse(_response.data[0][0].aerialdates)
                         
-                        Set _app.data.mostRecentAerialDate for other functions to reference
-                        _app.data.mostRecentAerialDate = _aerialDates.map(function(e) { return e.date.toString().replace(.g,'-'); }).sort().reverse()[0]
+                        //Set _app.data.mostRecentAerialDate for other functions to reference
+                        _app.data.mostRecentAerialDate = _aerialDates.map(function(e) { return e.date.toString().replace(/\./g,'-'); }).sort().reverse()[0]
                        
                        
                         _aerialDates.forEach(function(_a){
-                            var _date = _a.date.toString().replace(.g,'')
-                            var _dateFormatted = _a.date.toString().replace(.g,'-')
+                            var _date = _a.date.toString().replace(/\./g,'')
+                            var _dateFormatted = _a.date.toString().replace(/\./g,'-')
 
-                            WebTileLayer
+                            //WebTileLayer
                             var _nearmap_WebTileLayer = new WebTileLayer({
-                                urlTemplate httpsus{subDomain}.nearmap.commapsz={level}&x={col}&y={row}&nml=V&version=2&nmd=+ _date +&ticket= + _ticket,
-                                subDomains [0, 1, 2, 3],
-                                copyright Nearmap
+                                urlTemplate: "https://us{subDomain}.nearmap.com/maps/?z={level}&x={col}&y={row}&nml=V&version=2&nmd="+ _date +"&ticket=" + _ticket,
+                                subDomains: ["0", "1", "2", "3"],
+                                copyright: "Nearmap"
                             })
 
-                            Add to basemap gallery					
+                            //Add to basemap gallery					
                             _app.data.widgets.basemapGallery_BasemapSource.basemaps.push(
                                 new Basemap({
-                                    baseLayers [_nearmap_WebTileLayer],
-                                    title Lewisville Aerials ( + _dateFormatted + ),
-                                    id nearmap_ + _date
+                                    baseLayers: [_nearmap_WebTileLayer],
+                                    title: "Lewisville Aerials: (" + _dateFormatted + ")",
+                                    id: "nearmap_" + _date
                                 })
                             )
                         })
                     })
                 },              
-                createWidget_MeasurementIn2D function() {
+                createWidget_MeasurementIn2D: function() {
                     var _app = this;
 
-                     Create and add distance and area buttons
-                    createAndPlaceButton(distanceButton, esri-icon-polyline, Measure distance , viewDiv);
-                    createAndPlaceButton(areaButton, esri-icon-polygon, Measure area , viewDiv);
+                    // Create and add distance and area buttons
+                    createAndPlaceButton("distanceButton", "esri-icon-polyline", "Measure distance ?", "viewDiv");
+                    createAndPlaceButton("areaButton", "esri-icon-polygon", "Measure area ?", "viewDiv");
 
-                     Initialize Materialize tooltips
+                    // Initialize Materialize tooltips
                     initializeMaterializeTooltips();
 
-                     Add the buttons to the map view's UI
-                    _app.data.mapView.ui.add(distanceButton, top-right);
-                    _app.data.mapView.ui.add(areaButton, top-right);
+                    // Add the buttons to the map view's UI
+                    _app.data.mapView.ui.add("distanceButton", "top-right");
+                    _app.data.mapView.ui.add("areaButton", "top-right");
 
-                     Event listeners for the buttons
-                    document.getElementById(distanceButton).addEventListener(click, function() {
-                        toggleActiveWidget(distance, this);
+                    // Event listeners for the buttons
+                    document.getElementById("distanceButton").addEventListener("click", function() {
+                        toggleActiveWidget("distance", this);
                     });
 
-                    document.getElementById(areaButton).addEventListener(click, function() {
-                        toggleActiveWidget(area, this);
+                    document.getElementById("areaButton").addEventListener("click", function() {
+                        toggleActiveWidget("area", this);
                     });
 
-                     Helper functions
+                    // Helper functions
                     function createAndPlaceButton(buttonId, iconClass, tooltipText, parentDiv) {
-                        var html = `div id=${buttonId} class=waves-effect esri-widget--button esri-widget esri-interactive tooltipped data-position=left data-tooltip=${tooltipText}
-                                        span class=${iconClass}span
-                                    div`;
+                        var html = `<div id="${buttonId}" class="waves-effect esri-widget--button esri-widget esri-interactive tooltipped" data-position="left" data-tooltip="${tooltipText}">
+                                        <span class="${iconClass}"></span>
+                                    </div>`;
                         var domElement = domConstruct.toDom(html);
                         domConstruct.place(domElement, parentDiv);
                     }
@@ -689,7 +689,7 @@ head
 
                     function toggleActiveWidget(type, buttonElement) {
                         setActiveWidget(null);
-                        if (!buttonElement.classList.contains(active2D)) {
+                        if (!buttonElement.classList.contains("active2D")) {
                             setActiveWidget(type);
                         } else {
                             setActiveButton(null);
@@ -698,31 +698,31 @@ head
 
                     function setActiveWidget(type) {
                         switch (type) {
-                            case distance
+                            case "distance":
                                 _app.activeWidget = new DistanceMeasurement2D({
-                                    view _app.data.mapView,
-                                    unit feet,
+                                    view: _app.data.mapView,
+                                    unit: "feet",
                                     
                                 });
-                                _app.data.mapView.ui.add(_app.activeWidget, top-right);
+                                _app.data.mapView.ui.add(_app.activeWidget, "top-right");
                                 _app.activeWidget.viewModel.start();
-                                setActiveButton(document.getElementById(distanceButton));
-                                styleButton(distanceButton);
+                                setActiveButton(document.getElementById("distanceButton"));
+                                styleButton("distanceButton");
                                 break;
 
-                            case area
+                            case "area":
                                 _app.activeWidget = new AreaMeasurement2D({
-                                    view _app.data.mapView,
-                                    unit square-us-feet,
+                                    view: _app.data.mapView,
+                                    unit: "square-us-feet",
                                     
                                 });
-                                _app.data.mapView.ui.add(_app.activeWidget, top-right);
+                                _app.data.mapView.ui.add(_app.activeWidget, "top-right");
                                 _app.activeWidget.viewModel.start();
-                                setActiveButton(document.getElementById(areaButton));
-                                styleButton(areaButton);
+                                setActiveButton(document.getElementById("areaButton"));
+                                styleButton("areaButton");
                                 break;
 
-                            case null
+                            case null:
                                 if (_app.activeWidget) {
                                     _app.data.mapView.ui.remove(_app.activeWidget);
                                     _app.activeWidget.destroy();
@@ -734,80 +734,80 @@ head
                     }
 
                     function styleButton(buttonId) {
-                        document.getElementById(buttonId).style.cssText = background-color#5E2590; color#e4e4e4; border1px solid #0c0800;;
+                        document.getElementById(buttonId).style.cssText = "background-color:#5E2590; color:#e4e4e4; border:1px solid #0c0800;";
                     }
 
                     function resetButtonStyles() {
-                        document.getElementById(distanceButton).style.cssText = ;
-                        document.getElementById(areaButton).style.cssText = ;
+                        document.getElementById("distanceButton").style.cssText = "";
+                        document.getElementById("areaButton").style.cssText = "";
                     }
 
                     function setActiveButton(selectedButton) {
                         _app.data.mapView.focus();
-                        var elements = document.getElementsByClassName(active2D);
-                        for (var i = 0; i  elements.length; i++) {
-                            elements[i].classList.remove(active2D);
+                        var elements = document.getElementsByClassName("active2D");
+                        for (var i = 0; i < elements.length; i++) {
+                            elements[i].classList.remove("active2D");
                         }
                         if (selectedButton) {
-                            selectedButton.classList.add(active2D);
+                            selectedButton.classList.add("active2D");
                         }
                     }
                 },
 
-                createWidget_Print function(){
+                createWidget_Print: function(){
                     var _app = this
                     
                     var _widget_Print = new Print({
-                        view _app.data.mapView,
-                        container document.createElement(div),
-                        printServiceUrl httpswebadapt1.cityoflewisville.comarcgisrestservicesUtilitiesPrintingToolsGPServerExport%20Web%20Map%20Task,
-                        templateOptions {
-                            scaleEnabled  true
+                        view: _app.data.mapView,
+                        container: document.createElement("div"),
+                        printServiceUrl: "https://webadapt1.cityoflewisville.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
+                        templateOptions: {
+                            scaleEnabled : true
 
                         }
                         
                     });
 
                     var _expand = new Expand({
-                        view _app.data.mapView,
-                        content _widget_Print.container,
-                        expandIconClass esri-icon-printer,
-                        expandTooltip Print
+                        view: _app.data.mapView,
+                        content: _widget_Print.container,
+                        expandIconClass: "esri-icon-printer",
+                        expandTooltip: "Print"
                     });                    
 
-                    _app.data.mapView.ui.add(_expand, top-right)
+                    _app.data.mapView.ui.add(_expand, "top-right")
 
-                    Materialize Tooltips
-                    _expand.container.classList.add(tooltipped)
-                    _expand.container.setAttribute(data-position,left)
-                    _expand.container.setAttribute(data-tooltip,Print )
+                    //Materialize Tooltips
+                    _expand.container.classList.add("tooltipped")
+                    _expand.container.setAttribute("data-position","left")
+                    _expand.container.setAttribute("data-tooltip","Print ?")
                     
                     if (window.M){
                         var _tooltips = document.querySelectorAll('.tooltipped')
                         var _tooltips_instances = M.Tooltip.init(_tooltips)
                     }
                 },		
-                createWidget_Streetview function(){
+                createWidget_Streetview: function(){
                     var _app = this
                     
                     var _html = ''
-                    _html += '!--Streetview (hide in mobile layout)-- '                  
-                    _html += 'div id=pegmanDiv '
-                    _html += '  class=esri-widget--button esri-widget esri-interactive hide-on-med-and-down'
-                    _html += '  style=padding-top4px; padding-left4px;'
-                    _html += '  spanimg id=pegman src=imagespegman.png draggable=truespan'
-                    _html += 'div'
+                    _html += '<!--Streetview (hide in mobile layout)--> '                  
+                    _html += '<div id="pegmanDiv" '
+                    _html += '  class="esri-widget--button esri-widget esri-interactive hide-on-med-and-down"'
+                    _html += '  style="padding-top:4px; padding-left:4px;">'
+                    _html += '  <span><img id="pegman" src="images/pegman.png" draggable="true"/></span>'
+                    _html += '</div>'
 
                     var _pegmanElement = domConstruct.toDom(_html)                        
-                    domConstruct.place(_pegmanElement,viewDiv) 
+                    domConstruct.place(_pegmanElement,"viewDiv") 
 
-                    _app.data.mapView.ui.add(pegmanDiv, bottom-right);
+                    _app.data.mapView.ui.add("pegmanDiv", "bottom-right");
 
                     var popupBlockerChecker = {
-                        check function(popup_window){
+                        check: function(popup_window){
                             var _scope = this;
                             if (popup_window) {
-                                if(chrome.test(navigator.userAgent.toLowerCase())){
+                                if(/chrome/.test(navigator.userAgent.toLowerCase())){
                                     setTimeout(function () {
                                         _scope._is_popup_blocked(_scope, popup_window);
                                     },200);
@@ -820,97 +820,97 @@ head
                                 _scope._displayError();
                             }
                         },
-                        _is_popup_blocked function(scope, popup_window){
-                            if ((popup_window.innerHeight  0)==false){ 
+                        _is_popup_blocked: function(scope, popup_window){
+                            if ((popup_window.innerHeight > 0)==false){ 
                                 scope._displayError();
                             }
                         },
-                        _displayError function(){
+                        _displayError: function(){
                             if (window.M){
-                                var _isChrome = (chrome.test(navigator.userAgent.toLowerCase())  true  false)
-                                var _ChromeHtml = (_isChrome == true  'span class=yellow-text&nbsp In the address bar, click the allow-popups buttonspan'  '' )
+                                var _isChrome = (/chrome/.test(navigator.userAgent.toLowerCase()) ? true : false)
+                                var _ChromeHtml = (_isChrome == true ? '<span class="yellow-text">&nbsp In the address bar, click the allow-popups button</span>' : '' )
                                 
                                 M.toast({
-                                    html 'Street-level imagery opens in a new tab. Please enable popups for this sight.' + _ChromeHtml + '&nbsp button id=popupsNotAllowedAlertDismiss class=btn-flat toast-action onclick=M.Toast.dismissAll();Dismissbutton',
-                                    displayLength 10000
+                                    html: 'Street-level imagery opens in a new tab. Please enable popups for this sight.' + _ChromeHtml + '&nbsp <button id="popupsNotAllowedAlertDismiss" class="btn-flat toast-action" onclick="M.Toast.dismissAll();">Dismiss</button>',
+                                    displayLength: 10000
                                 })
                             }
                         }
                     };
                     
-                    Events
-                    on(dom.byId(pegman), dragstart, function(_event){
-                        console.log(dragstart)
+                    //Events
+                    on(dom.byId("pegman"), "dragstart", function(_event){
+                        console.log("dragstart")
                         
-                        Turn on street layer
-                        _app.settings.app.layers.set(1110,0)
+                        //Turn on street layer
+                        _app.settings.app.layers.set("1110",0)
 
                         var img = new Image(); 
                         img.src = 'pegmandrag.png'; 
                         _event.dataTransfer.setDragImage(img, 20, 20);
-                        _event.dataTransfer.dropEffect = move;
+                        _event.dataTransfer.dropEffect = "move";
                     })
 
-                    on(dom.byId(pegman), dragend, function(_event){
-                        console.log(dragend)
-                        Turn off street layer
-                        _app.settings.app.layers.set(1110,0)
+                    on(dom.byId("pegman"), "dragend", function(_event){
+                        console.log("dragend")
+                        //Turn off street layer
+                        _app.settings.app.layers.set("1110",0)
 
-                        DragDropTouch.js library causes _event x and y to become pageX and pageY
-                        var _x = (_event.x  _event.x  _event.pageX)
-                        var _y = (_event.y  _event.y  _event.pageY)
+                        //DragDropTouch.js library causes _event x and y to become pageX and pageY?
+                        var _x = (_event.x ? _event.x : _event.pageX)
+                        var _y = (_event.y ? _event.y : _event.pageY)
 
-                        Get point and convert to latlng
-                        var _point = _app.data.mapView.toMap({x_x,y_y})
-                        var _latlng = _point.latitude + , + _point.longitude                                      
+                        //Get point and convert to lat/lng
+                        var _point = _app.data.mapView.toMap({x:_x,y:_y})
+                        var _latlng = _point.latitude + "," + _point.longitude                                      
                         
-                        Create an anchor element to hyperlink to Streetview url in new tab
-                        var popup = window.open(httpswww.google.commaps@api=1&map_action=pano&viewpoint= + _latlng + &pitch=0&fov=90, '_blank');
+                        //Create an anchor element to hyperlink to Streetview url in new tab
+                        var popup = window.open("https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=" + _latlng + "&pitch=0&fov=90", '_blank');
                         popupBlockerChecker.check(popup);
                     })
 
-                    on(dom.byId(viewDiv),dragover,function(_event){
+                    on(dom.byId("viewDiv"),"dragover",function(_event){
                         _event.preventDefault()
                     })
                     
                 },
-                createWidget_SaveSettings function(){
+                createWidget_SaveSettings: function(){
                     var _app = this
 
-                    on(query(.saveButton),click,function(_event){
+                    on(query(".saveButton"),"click",function(_event){
                         _event.preventDefault()
                         _app.settings.saveToUrl()
                     })
                 },               
-                get_GroupsList function(_callback){
+                get_GroupsList: function(_callback){
                     var _app = this
-                    var _url = httpsquery.cityoflewisville.comv2webservice=COLMapsLayersGroup
+                    var _url = "https://query.cityoflewisville.com/v2/?webservice=COLMapsLayersGroup"
                  
                     esriRequest(_url).then(function(_response){
-                         Get groups from COL Layer Group Web Service
+                        // Get groups from COL Layer Group Web Service
                         _groups =  _response.data[0]    
                                                
-                        Remove groups with no layers
+                        //Remove groups with no layers
                         _groups = _groups.filter(function(_g){
-                            return parseInt(_g.empandpubliclayers)  0
+                            return parseInt(_g.empandpubliclayers) > 0
                         })
 
-                        Non-employee users - remove groups with only employee-layers
+                        //Non-employee users - remove groups with only employee-layers
                         _groups = _groups.filter(function(_g){
-                            return parseInt(_g.publiclayers)  0
+                            return parseInt(_g.publiclayers) > 0
                         })
 
-                        Sort by the sortorder field
+                        //Sort by the "sortorder" field
                         _groups = _groups.sort(function(a,b){
-                            return (a.sortorder  b.sortorder  1 -1)
+                            return (a.sortorder > b.sortorder ? 1 :-1)
                         })
 
-                        Return an array of group-names
+                        //Return an array of group-names
                         _app.data.groups = _groups.map(function(_m){
                             return _m.name
                         })
                         
-                        Make accordion tab for each group
+                        //Make accordion tab for each group
                          _app.data.groups.forEach(function(_g){
                             _app.layerAccordion.addNewGroup(_g)
                         })	
@@ -920,34 +920,34 @@ head
                         }
                     })
                 },
-                get_LayerList function(_settings,_callback){
+                get_LayerList: function(_settings,_callback){
                     var _app = this
-                    _query = 
-                    Include employeesonly layers if _app.isEmployee  = True
-                    &IncludeEmployeeLayers = [0 or 1]
+                    _query = ""
+                    //Include employeesonly layers if _app.isEmployee  = True
+                    //&IncludeEmployeeLayers = [0 or 1]
                     if (_settings.includeEmployeeLayers == true){
-                        _query =  &IncludeEmployeeLayers=1
+                        _query = " &IncludeEmployeeLayers=1"
                      
                     }
 
-                    Google Spreadsheet feedslist url
-                    var _url = httpsquery.cityoflewisville.comv2webservice=COLMapsLayers + _query
+                    //Google Spreadsheet feeds/list url
+                    var _url = "https://query.cityoflewisville.com/v2/?webservice=COLMapsLayers" + _query
                     esriRequest(_url).then(function(_response){
-                        Format Google Spreadsheet response
-                        _app.data.layersFromServer = _response.data[0]
-                         Filter layers with adaptergis in it.
+                        //Format Google Spreadsheet response
+                        //_app.data.layersFromServer = _response.data[0]
+                        // Filter layers with adaptergis in it.
                         _response.data[0].forEach(function(_item){
-                            if(!_item.url.includes(adaptergis) && !_item.url.includes(.kmz) && _item.hidefromuser != true){
+                            if(!_item.url.includes("adaptergis") && !_item.url.includes(".kmz") && _item.hidefromuser != true){
                                 _app.data.layersFromServer.push(_item)
                             }
                         });
 
-                        Add individual layers to toggle-UI	
+                        //Add individual layers to toggle-UI	
                         _app.data.layersFromServer.forEach(function(_lyr){         
                             _app.layerAccordion.addNewToggleButton(_lyr)                   
 
                         });    
-                        Turn on open-on-load-layers
+                        //Turn on open-on-load-layers
                         _app.data.layersFromServer.forEach(function(_lyr){                            
                             if (_lyr.openonload == true){
                                 _app.layerAccordion.addNewLayer(_lyr)                                
@@ -960,74 +960,74 @@ head
 
                     })
                 },
-                layerAccordion {
-                    hostedLayerdata{
-                        hid  [],
+                layerAccordion: {
+                    hostedLayerdata:{
+                        hid : [],
                     },      
-                    myConsole   function(item){
-                                    console.log(item.id)
+                    myConsole  : function(item){
+                                    //console.log(item.id)
                                 },               
-                    addNewGroup function(_groupname){
+                    addNewGroup: function(_groupname){
                         var _app = APP
                         var _this = _app.layerAccordion
 
-                        var _html =  'li'
-                            _html += ' div class=collapsible-header'+_groupname+'div'
-                            _html += ' div class=collapsible-body id=group_'+_groupname+'div'
-                            _html += 'li'
+                        var _html =  '<li>'
+                            _html += ' <div class="collapsible-header">'+_groupname+'</div>'
+                            _html += ' <div class="collapsible-body" id="group_'+_groupname+'"></div>'
+                            _html += '</li>'
 
                         var _newAccordionTab = domConstruct.toDom(_html)
                         
-                        domConstruct.place(_newAccordionTab,layerToggle)                      
+                        domConstruct.place(_newAccordionTab,"layerToggle")                      
 
-                        Open Main tab
-                        var _instance = M.Collapsible.getInstance(document.getElementById(layerToggle))
+                        //Open "Main" tab
+                        var _instance = M.Collapsible.getInstance(document.getElementById("layerToggle"))
                         _instance.open(0)
                     },
-                    addNewToggleButton function(_layer){ 
+                    addNewToggleButton: function(_layer){ 
                         var _app = APP
                         var _this = _app.layerAccordion
 
-                        var _employeesOnlyLabel = ' small class=yellow lighten-4 style=padding0.5em; font-weightbold; font-size0.6em; title=This layer is visible only to employees who are logged-in.Employee-Onlysmall'                        
-                        var _hideFromUserLayers = (_layer.hidefromuser == true  'displaynone;'  '')
+                        var _employeesOnlyLabel = ' <small class="yellow lighten-4" style="padding:0.5em; font-weight:bold; font-size:0.6em;" title="This layer is visible only to employees who are logged-in.">*Employee-Only</small>'                        
+                        var _hideFromUserLayers = (_layer.hidefromuser == true ? 'display:none;' : '')
 
-                        var _html =  'div style='+_hideFromUserLayers+''
-                            _html += ' label'
-                            _html += '   input type=checkbox id=lyr_'+_layer.id+' '+(_layer.openonload == true  checked  )+''                            
-                            _html += '   span class=black-text' + _layer.label + (_layer.employeesonly == true  _employeesOnlyLabel  '') + 'span'
-                            _html += ( _layer.refreshinterval != ''  '   span title=Auto-refreshes every '+_layer.refreshinterval+' secondsi class=material-icons tinyautorenewispan'  '' )
-                            _html += ' label'
-                            _html += 'div'
+                        var _html =  '<div style="'+_hideFromUserLayers+'">'
+                            _html += ' <label>'
+                            _html += '   <input type="checkbox" id="lyr_'+_layer.id+'" '+(_layer.openonload == true ? "checked" : "")+'>'                            
+                            _html += '   <span class="black-text">' + _layer.label + (_layer.employeesonly == true ? _employeesOnlyLabel : '') + '</span>'
+                            _html += ( _layer.refreshinterval != '' ? '   <span title="Auto-refreshes every '+_layer.refreshinterval+' seconds"><i class="material-icons tiny">autorenew</i></span>' : '' )
+                            _html += ' </label>'
+                            _html += '</div>'
 
-                            _html += 'div class=layerToggle_ExtraInfo style='+_hideFromUserLayers+''
-                            _html += ' p style=padding-left 35px; margin-top 0;smallbSource b' + (_layer.source.length  0  _layer.source  'NA' ) + 'smallp'
-                            _html += 'div'
+                            _html += '<div class="layerToggle_ExtraInfo" style="'+_hideFromUserLayers+'">'
+                            _html += ' <p style="padding-left: 35px; margin-top: 0;"><small><b>Source: </b>' + (_layer.source.length > 0 ? _layer.source : 'N/A' ) + '</small></p>'
+                            _html += '</div>'
 
                         var _newCheckbox = domConstruct.toDom(_html)
-                        var _groupToAppendTo = group_+_layer.groupname
+                        var _groupToAppendTo = "group_"+_layer.groupname
                         domConstruct.place(_newCheckbox,_groupToAppendTo)
                             
-                         Create a variable referencing the checkbox node
-                        var _toggle = dom.byId(lyr_ + _layer.id);
+                        // Create a variable referencing the checkbox node
+                        var _toggle = dom.byId("lyr_" + _layer.id);
                         
                         _this.addNewLayer_ChangeEvent(_toggle)
   
                     },            
-                    addNewLayer function(_lyr, _visible, _callback){
-                        var _app = APP;  Ensure APP is your actual application's context or global object
-                        var _popupTemplate = (_lyr.popuptemplate && _lyr.popuptemplate.length  0)  parsePopupTemplate(_lyr.popuptemplate)  null;
-                        var _layerOpacity = (!_lyr.opacity  _lyr.opacity  0.2)  0.9  _lyr.opacity;
+                    addNewLayer: function(_lyr, _visible, _callback){
+                        var _app = APP; // Ensure APP is your actual application's context or global object
+                        var _popupTemplate = (_lyr.popuptemplate && _lyr.popuptemplate.length > 0) ? parsePopupTemplate(_lyr.popuptemplate) : null;
+                        var _layerOpacity = (!_lyr.opacity || _lyr.opacity < 0.2) ? 0.9 : _lyr.opacity;
 
-                        esriRequest(_lyr.url + f=json).then(function(_response) {
+                        esriRequest(_lyr.url + "?f=json").then(function(_response) {
                             var response_data = _response.data;
                             var _layerType = determineLayerType(response_data);
                             var _newLayer = createLayerByType(_layerType, _lyr, _popupTemplate, _layerOpacity, _app, response_data);
-                            if (!_layerType.toLowerCase().includes(hosted) && _newLayer) {
+                            if (!_layerType.toLowerCase().includes("hosted") && _newLayer) {
                                 _app.data.map.layers.add(_newLayer);
-                                _app.data.layers[lyr_ + _lyr.id] = _newLayer;
+                                _app.data.layers["lyr_" + _lyr.id] = _newLayer;
                             }
 
-                            if (_layerType === TileLayer) {
+                            if (_layerType === "TileLayer") {
                                 handleTileLayerSpecifics(_lyr, _app);
                             }
 
@@ -1035,98 +1035,98 @@ head
                                 _callback();
                             }
                         }).catch(function(error) {
-                            console.error(Failed to add new layer, error);
+                            console.error("Failed to add new layer:", error);
                         });
                         
-                         Parses the popup template from a JSON string safely
+                        // Parses the popup template from a JSON string safely
                         function parsePopupTemplate(templateString) {
                             try {
                                 var parsedTemplate = JSON.parse(templateString);
                                 if (parsedTemplate.expressionInfos) {
-                                    console.log(Parsed popup template, parsedTemplate.expressionInfos[0].expression);
-                                    parsedTemplate.expressionInfos[0].expression = parsedTemplate.expressionInfos[0].expression.replace(_feature.g, '$feature.');
+                                    //console.log("Parsed popup template", parsedTemplate.expressionInfos["0"].expression);
+                                    parsedTemplate.expressionInfos["0"].expression = parsedTemplate.expressionInfos["0"].expression.replace(/_feature./g, '$feature.');
                                 }
                                 return parsedTemplate;
                             } catch (error) {
-                                console.error(Popup template parsing error, error);
-                                return { title Error, content Invalid popup template };
+                                console.error("Popup template parsing error:", error);
+                                return { title: "Error", content: "Invalid popup template" };
                             }
                         }
 
                         function determineLayerType(serviceData) {
-                            if (serviceData.hasOwnProperty(serviceItemId)) {
-                                return HostedLayer;
-                            } else if (serviceData.hasOwnProperty(type) && serviceData.type === indexedVector) {
-                                return VectorTileLayer;
-                            } else if (serviceData.hasOwnProperty(tileInfo) && !serviceData.hasOwnProperty(type)) {
-                                return TileLayer;
+                            if (serviceData.hasOwnProperty("serviceItemId")) {
+                                return "HostedLayer";
+                            } else if (serviceData.hasOwnProperty("type") && serviceData.type === "indexedVector") {
+                                return "VectorTileLayer";
+                            } else if (serviceData.hasOwnProperty("tileInfo") && !serviceData.hasOwnProperty("type")) {
+                                return "TileLayer";
                             }
-                            return MapImageLayer;   Default type
+                            return "MapImageLayer";  // Default type
                         }
 
                         function createLayerByType(layerType, layerInfo, popupTemplate, opacity, app, response_data) {
                             switch (layerType) {
-                                case VectorTileLayer
-                                    return new VectorTileLayer({ url layerInfo.url });
-                                case MapImageLayer
+                                case "VectorTileLayer":
+                                    return new VectorTileLayer({ url: layerInfo.url });
+                                case "MapImageLayer":
                                     return new MapImageLayer({
-                                        id layerInfo.id,
-                                        url layerInfo.url,
-                                        title layerInfo.title,
-                                        sublayers defineSublayers(layerInfo, popupTemplate),
-                                        opacity opacity,
-                                        refreshInterval layerInfo.refreshinterval  60
+                                        id: layerInfo.id,
+                                        url: layerInfo.url,
+                                        title: layerInfo.title,
+                                        sublayers: defineSublayers(layerInfo, popupTemplate),
+                                        opacity: opacity,
+                                        refreshInterval: layerInfo.refreshinterval / 60
                                     });
-                                case TileLayer
-                                    return new TileLayer({ url layerInfo.url, opacity opacity });
-                                case HostedLayer
+                                case "TileLayer":
+                                    return new TileLayer({ url: layerInfo.url, opacity: opacity });
+                                case "HostedLayer":
                                     handleHostedLayer(layerInfo, app, response_data);
-                                default
-                                    console.error(Unsupported layer type, layerType);
+                                default:
+                                    //console.error("Unsupported layer type:", layerType);
                                     return null;
                             }
                         }
 
                         function handleTileLayerSpecifics(layerInfo, app) {
-                            var featureServiceUrl = layerInfo.url.replace(MapServergi, FeatureServer);
+                            var featureServiceUrl = layerInfo.url.replace(/\/MapServer/gi, "/FeatureServer");
                             var featureServiceLayer = new FeatureLayer({
-                                id layerInfo.id + _TileCache_FeatureService_ForPopups,
-                                url featureServiceUrl
+                                id: layerInfo.id + "_TileCache_FeatureService_ForPopups",
+                                url: featureServiceUrl
                             });
                             app.data.map.layers.add(featureServiceLayer);
-                            app.data.layers[lyr_ + layerInfo.id + _TileCache_FeatureService_ForPopups] = featureServiceLayer;
+                            app.data.layers["lyr_" + layerInfo.id + "_TileCache_FeatureService_ForPopups"] = featureServiceLayer;
                         }
 
                         function handleHostedLayer(layerInfo, app, response_data) {
-                            console.log(Creating hosted layer , layerInfo);
+                            //console.log("Creating hosted layer: ", layerInfo);
                             var _layerServiceId = layerInfo.serviceItemId;
-                            if (layerInfo.url.endsWith(Server)) {
+                            if (layerInfo.url.endsWith("Server")) {
                                 return Layer.fromPortalItem({
-                                    portalItem { id response_data.serviceItemId},
-                                    id layerInfo.id,
-                                    url layerInfo.url
+                                    portalItem: { id: response_data.serviceItemId},
+                                    id: layerInfo.id,
+                                    url: layerInfo.url
                                 }).then(function(_hostedLayer) {
                                     app.data.map.add(_hostedLayer);
                                     _hindex = (app.data.map.layers.items.length-1)
                                     _hid = app.data.map.layers.items[_hindex].id
-                                    app.layerAccordion.hostedLayerdata.hid[lyr_ + _lyr.id] = _hid
-                                    app.data.layers[lyr_ + _lyr.id] = _hostedLayer
+                                    app.layerAccordion.hostedLayerdata.hid["lyr_" + _lyr.id] = _hid
+                                    app.data.layers["lyr_" + _lyr.id] = _hostedLayer
 
-                                    console.log(_hindex , _hindex,  hid , _hid,  hostedlayer , _hostedLayer);
+                                    //console.log("_hindex: ", _hindex, " hid: ", _hid, " hostedlayer: ", _hostedLayer);
                                                 
                                     return _hostedLayer;
 
                                 }).catch(function(error) {
-                                    console.error(Failed to create layer from portal item, error);
+                                    console.error("Failed to create layer from portal item:", error);
                                     return null;
                                 });
                             } else {
                                 new_layer = new FeatureLayer({ 
-                                    id layerInfo.id, 
-                                    url layerInfo.url });
+                                    id: layerInfo.id, 
+                                    url: layerInfo.url });
 
                                 app.data.map.add(new_layer);
-                                app.data.layers[lyr_ + _lyr.id] = new_layer;
+                                app.data.layers["lyr_" + _lyr.id] = new_layer;
                             }
                             
                         }
@@ -1134,14 +1134,14 @@ head
                         function defineSublayers(layerInfo, popupTemplate) {
                             var subLayers = [];
                             if (layerInfo.layerzeroonly) {
-                                subLayers.push({ id 0, popupTemplate popupTemplate, visible true });
+                                subLayers.push({ id: 0, popupTemplate: popupTemplate, visible: true });
                             } else if (layerInfo.layers && Array.isArray(layerInfo.layers)) {
                                 layerInfo.layers.forEach(function(layer) {
-                                    subLayers.push({ id layer.id, popupTemplate popupTemplate, visible true });
+                                    subLayers.push({ id: layer.id, popupTemplate: popupTemplate, visible: true });
                                 });
                             } else {
-                                console.warn(No layers array found in layerInfo, using default sublayer configuration);
-                                subLayers.push({ id 0, popupTemplate popupTemplate, visible true });
+                                //console.warn("No layers array found in layerInfo, using default sublayer configuration");
+                                subLayers.push({ id: 0, popupTemplate: popupTemplate, visible: true });
                             }
                             return subLayers;
                         }
@@ -1149,37 +1149,37 @@ head
                         
                     },
 
-                    addNewLayer_ChangeEvent function(_element){
+                    addNewLayer_ChangeEvent: function(_element){
                         var _app = APP
                         var _this = _app.layerAccordion                     
 
-                         Listen to the onchange event for the checkbox
-                        on(_element, click, function(_event){
+                        // Listen to the onchange event for the checkbox
+                        on(_element, "click", function(_event){
                             
-                            Prevent window from scrolling down past visual range (Materialize checkbox issue)
+                            //Prevent window from scrolling down past visual range (Materialize checkbox issue?)
                             window.scrollTo(0,0)
-                            var _elementLayerId = parseInt(_event.target.id.replace(lyr_,))
+                            var _elementLayerId = parseInt(_event.target.id.replace("lyr_",""))
 				
                             var _newLayer = _app.data.layersFromServer.filter(function(f){                                                                              
                                 return f.id == _elementLayerId
                             })[0]
                             
-                            If this layer doesn't exist in app.data.layers, add it
-                            if ( typeof _app.data.layers[_event.target.id] == undefined ){
-                                console.log('typeof _app.data.layers[_event.target.id] == undefined')
+                            //If this layer doesn't exist in app.data.layers, add it
+                            if ( typeof _app.data.layers[_event.target.id] == "undefined" ){
+                                //console.log('typeof _app.data.layers[_event.target.id] == "undefined"')
                                 _this.addNewLayer(_newLayer,false,function(){
                                     setVisibility()
                                 }) 
                             }else{    
                                 if (_element.checked == false){ 
-                                     Remove hosted layers                                   =
+                                    // Remove hosted layers                                   =
                                     _app.data.layersFromServer.filter(function(f){
-                                        esriRequest(f.url + f=json).then(function(_response){                                            
-                                            if (_response.data.hasOwnProperty(serviceItemId) && f.id == _elementLayerId){                                                                                            
+                                        esriRequest(f.url + "?f=json").then(function(_response){                                            
+                                            if (_response.data.hasOwnProperty("serviceItemId") && f.id == _elementLayerId){                                                                                            
                                                 try{
-                                                    _hid = _app.layerAccordion.hostedLayerdata.hid[lyr_ + _elementLayerId]                                                    
-                                                     Return the index of hosted layer to be removed.
-                                                    for(var i = 0; i = _app.data.map.layers.items.length-1; i++){
+                                                    _hid = _app.layerAccordion.hostedLayerdata.hid["lyr_" + _elementLayerId]                                                    
+                                                    // Return the index of hosted layer to be removed.
+                                                    for(var i = 0; i <= _app.data.map.layers.items.length-1; i++){
                                                         if(typeof(_app.data.map.layers.items[i].id) != undefined && _app.data.map.layers.items[i].id == _hid){
                                                             var _hindex = i                                                            
                                                         }
@@ -1192,8 +1192,8 @@ head
                                         }})  
                                     })
 
-                                    _app.data.layers[lyr_ + _elementLayerId].visible = false                                    
-                                    delete _app.data.layers[lyr_ + _elementLayerId]                                        
+                                    _app.data.layers["lyr_" + _elementLayerId].visible = false                                    
+                                    delete _app.data.layers["lyr_" + _elementLayerId]                                        
                                     
                                 }else{
                                     _this.addNewLayer(_newLayer,false,function(){
@@ -1203,28 +1203,28 @@ head
                             }
                         });
                         function setVisibility(){
-                            Set layer visibility (use master [_layers] object to get the layer. Doesn't work with map.allLayers.find or map.findLayerById)	
+                            //Set layer visibility (use master [_layers] object to get the layer. Doesn't work with map.allLayers.find or map.findLayerById)	
                             try {	
-                                Main layer                                
-                                _app.data.layers[lyr_ + _elementLayerId].visible = _element.checked
+                                //Main layer                                
+                                _app.data.layers["lyr_" + _elementLayerId].visible = _element.checked
 
-                                Vector Tile layer	
+                                //Vector Tile layer	
                                 if (_element.checked == true){
-                                    _app.data.map.remove( _app.data.layers[lyr_ + _elementLayerId])
+                                    _app.data.map.remove( _app.data.layers["lyr_" + _elementLayerId])
                                 }
 
-                                Tile cache feature layers
-                                _app.data.layers[lyr_ + (_elementLayerId.toString()+_TileCache_FeatureService_ForPopups)].visible = _element.checked 
+                                //Tile cache feature layers
+                                _app.data.layers["lyr_" + (_elementLayerId.toString()+"_TileCache_FeatureService_ForPopups")].visible = _element.checked 
                             }catch(e){
                                 console.log(e)
                             }
                         }
                     },
-                    getFields function(_lyr,_callback){
+                    getFields: function(_lyr,_callback){
                         var _app = APP
 
-                        esriRequest(_lyr.url + 0f=json).then(function(_response){	
-                            _app.data.layers[lyr_ + _lyr.id].fields = _response.fields
+                        esriRequest(_lyr.url + "/0?f=json").then(function(_response){	
+                            //_app.data.layers["lyr_" + _lyr.id].fields = _response.fields
                             return _response.fields
 
                             if (_callback){
@@ -1233,111 +1233,111 @@ head
                         })
                     }
                 },
-                LevelsOfDetail function(){
-                     Taken from httpsgist.github.comstdavis6e5c721d50401ddbf126
-                     By default ArcGIS SDK only goes to zoom level 19,
-                     In order to overcome this, we need to add more Level Of Detail (LOD) entries to both the view and the web tile layer
+                LevelsOfDetail: function(){
+                    // Taken from https://gist.github.com/stdavis/6e5c721d50401ddbf126
+                    // By default ArcGIS SDK only goes to zoom level 19,
+                    // In order to overcome this, we need to add more Level Of Detail (LOD) entries to both the view and the web tile layer
                     var lods = [];
                     var tilesize = 256;
                     var earthCircumference = 40075016.685568;
-                    var halfEarthCircumference = earthCircumference  0.5;   Corrected this line
+                    var halfEarthCircumference = earthCircumference * 0.5;  // Corrected this line
                     var inchesPerMeter = 39.37;
-                    var initialResolution = earthCircumference  tilesize;
-                    for (var zoom = 0; zoom = 24; zoom++) {
-                        var resolution = initialResolution  Math.pow(2, zoom);
-                        var scale = resolution  96  inchesPerMeter;
+                    var initialResolution = earthCircumference / tilesize;
+                    for (var zoom = 0; zoom <= 24; zoom++) {
+                        var resolution = initialResolution / Math.pow(2, zoom);
+                        var scale = resolution * 96 * inchesPerMeter;
                         lods.push(new LOD({
-                            level zoom,
-                            scale scale,
-                            resolution resolution
+                            level: zoom,
+                            scale: scale,
+                            resolution: resolution
                         }));
                     }
                     return lods;
                 },
-                setIsMobile function(){
+                setIsMobile: function(){
                     var _app = this
                     
                     if (matchMedia) {
-                        var mq = window.matchMedia((min-width 993px)); Materialize min-width for tablet
+                        var mq = window.matchMedia("(min-width: 993px)"); //Materialize min-width for tablet
                         mq.addListener(WidthChange);
                         WidthChange(mq);
                     }
 
-                     media query change
+                    // media query change
                     function WidthChange(mq) {
 
                         if (mq.matches){
                             _app.data.isMobile = false
 
-                            Set zoom to 13
+                            //Set zoom to 13
                             _app.data.mapZoom = 13
 
-                            Layers list - show extra info
-                            query(.layerToggle_ExtraInfo).style(display,block)
-                            document.querySelectorAll(.layerToggle_ExtraInfo).forEach(function(node) {
-                                node.style.display = block;  To show
-                                 node.style.display = none;  To hide
+                            //Layers list - show extra info
+                            //query(".layerToggle_ExtraInfo").style("display","block")
+                            document.querySelectorAll(".layerToggle_ExtraInfo").forEach(function(node) {
+                                node.style.display = "block"; // To show
+                                // node.style.display = "none"; // To hide
                             });
 
-                            Move the map-element and layer-list-element to their appropriate containers
-                            domConstruct.place(viewDiv,mapContainerLarge)
-                            domConstruct.place(layerToggle,layersContainerLarge)
+                            //Move the map-element and layer-list-element to their appropriate containers
+                            domConstruct.place("viewDiv","mapContainerLarge")
+                            domConstruct.place("layerToggle","layersContainerLarge")
 
                         }else{
                             _app.data.isMobile = true
                             
-                            Set basemap to Esri Streets for faster loading
-                            _app.data.basemap = streets
+                            //Set basemap to Esri Streets for faster loading
+                            _app.data.basemap = "streets"
                             
-                            Hide navbar
-                             Do not hide nav bar, the login for employee-only layers
-                            document.querySelector(nav).style.display = 100%
-                            document.querySelector(#mainContainer).style.height = 100%
-                            document.querySelector(#mainContainer).style.margin = 0
+                            //Hide navbar
+                            // Do not hide nav bar, the login for employee-only layers
+                            document.querySelector("nav").style.display = "100%"
+                            document.querySelector("#mainContainer").style.height = "100%"
+                            document.querySelector("#mainContainer").style.margin = "0"
 
-                            Set zoom to 12
+                            //Set zoom to 12
                             _app.data.mapZoom = 12
 
-                            Layers list - dont show extra info
-                            query(.layerToggle_ExtraInfo).style(display,none)
-                            document.querySelectorAll(.layerToggle_ExtraInfo).forEach(function(node) {
-                                node.style.display = none;  To show
-                                 node.style.display = none;  To hide
+                            //Layers list - dont show extra info
+                            //query(".layerToggle_ExtraInfo").style("display","none")
+                            document.querySelectorAll(".layerToggle_ExtraInfo").forEach(function(node) {
+                                node.style.display = "none"; // To show
+                                // node.style.display = "none"; // To hide
                             });
                             
-                            Move the map-element and layer-list-element to their appropriate containers
-                            domConstruct.place(viewDiv,mapContainerSmall)
-                            domConstruct.place(layerToggle,layersContainerSmall)
+                            //Move the map-element and layer-list-element to their appropriate containers
+                            domConstruct.place("viewDiv","mapContainerSmall")
+                            domConstruct.place("layerToggle","layersContainerSmall")
                         }
                     }
                 },
-                setIsEmployee function(){
+                setIsEmployee: function(){
                     var _app = this
-                    console.log(window)
-                    console.log(window.location.href)
+                    //console.log(window)
+                    //console.log(window.location.href)
 
-                    if (typeof window.localStorage.colEmail != undefined){
+                    if (typeof window.localStorage.colEmail != "undefined"){
                         _app.data.isEmployee = true
                         _app.data.username = window.localStorage.colEmail
-                        var _elems = document.querySelectorAll(.username)
-                        for (var i=0; i _elems.length; i++){
+                        var _elems = document.querySelectorAll(".username")
+                        for (var i=0; i< _elems.length; i++){
                             _elems[i].innerHTML = window.localStorage.colEmail
                         }
                     }else{
-                        var _elems = document.querySelectorAll(.username)
-                        for (var i=0; i _elems.length; i++){
+                        var _elems = document.querySelectorAll(".username")
+                        for (var i=0; i< _elems.length; i++){
                             var _elem = _elems[i]
-                            _elem.text = Employee Login
-                            _elem.style.textDecoration = underline                            
-                            _elem.href='httpsmaps.cityoflewisville.comoauthredirectindex.htmloriginalurl=' + encodeURIComponent(window.location.href)
-                            console.log(_elem.href)
+                            _elem.text = "Employee Login"
+                            _elem.style.textDecoration = "underline"                            
+                            _elem.href='https://maps.cityoflewisville.com/oauthredirect/index.html?originalurl=' + encodeURIComponent(window.location.href)
+                            //console.log(_elem.href)
                         }
                     }
                 },
-                isJSON function(jsonString){
+                isJSON: function(jsonString){
                     try {
                         var o = JSON.parse(jsonString);
-                        if (o && typeof o === object) {
+                        if (o && typeof o === "object") {
                             return o
                         }
                     }
@@ -1345,53 +1345,53 @@ head
 
                     return false;
                 },
-                settings {
-                    applyFromUrl function(){
+                settings: {
+                    applyFromUrl: function(){
                         var _app = APP
                         var _this = _app.settings
                         
-                        _this.app.zoom.set( _this.url.get(zoom) )
-                        _this.app.center.set( _this.url.get(center) )
+                        _this.app.zoom.set( _this.url.get("zoom") )
+                        _this.app.center.set( _this.url.get("center") )
 
-                        _this.app.basemap.set(_this.url.get(basemap))
-                        _this.app.layers.set (_this.url.get(layers) )
+                        _this.app.basemap.set(_this.url.get("basemap"))
+                        _this.app.layers.set (_this.url.get("layers") )
                         
                     },
-                    saveToUrl function(){
+                    saveToUrl: function(){
                         var _app = APP
                         var _this = _app.settings
                         var _baseUrl = window.location.origin + window.location.pathname
 
-                        var _parameters =  &zoom= + _this.app.zoom.get() + &amp;center= + _this.app.center.get() + &basemap= + _this.app.basemap.get() + &layers= + _this.app.layers.get()
+                        var _parameters =  "&zoom=" + _this.app.zoom.get() + "&amp;center=" + _this.app.center.get() + "&basemap=" + _this.app.basemap.get() + "&layers=" + _this.app.layers.get()
                         
-                        var _html = ' small class=hide-on-med-and-down'
-                            _html += ' a id=saveToUrlSpan href=' + _baseUrl +  + _parameters + '' + _baseUrl +  + _parameters.substr(0,10) + '...a'
-                            _html += ' button id=copyToClipboardButton class=btn-flat toast-actionCopy to Clipboardbutton'
-                            _html += 'small'
+                        var _html = ' <small class="hide-on-med-and-down">'
+                            _html += ' <a id="saveToUrlSpan" href="' + _baseUrl + "?" + _parameters + '">' + _baseUrl + "?" + _parameters.substr(0,10) + '...</a>'
+                            _html += ' <button id="copyToClipboardButton" class="btn-flat toast-action">Copy to Clipboard</button>'
+                            _html += '</small>'
 
-                            _html += 'small class= hide-on-med-and-up show-on-small'
-                            _html += ' a id=saveToUrlSpan href=' + _baseUrl +  + _parameters + '' + (_baseUrl +  + _parameters).substr(0,35) + '...a'
-                            _html += ' button id=copyToClipboardButton class=btn-flat toast-actionCopybutton'
-                            _html += 'small'
+                            _html += '<small class=" hide-on-med-and-up show-on-small">'
+                            _html += ' <a id="saveToUrlSpan" href="' + _baseUrl + "?" + _parameters + '">' + (_baseUrl + "?" + _parameters).substr(0,35) + '...</a>'
+                            _html += ' <button id="copyToClipboardButton" class="btn-flat toast-action">Copy</button>'
+                            _html += '</small>'
 
                         M.toast({
-                            html _html,
-                            displayLength 10000
+                            html: _html,
+                            displayLength: 10000
                         })
 
-                        on(dom.byId(copyToClipboardButton),click,function(_event){ 
+                        on(dom.byId("copyToClipboardButton"),"click",function(_event){ 
                            
-                           Copy url to clipboard
-                            _app.settings.copyToClipboard(dom.byId(saveToUrlSpan).href)
+                           //Copy url to clipboard
+                            _app.settings.copyToClipboard(dom.byId("saveToUrlSpan").href)
                             
                             var toastElement = document.querySelector('.toast');
                             var toastInstance = M.Toast.getInstance(toastElement);
                             toastInstance.dismiss();
 
-                            M.toast({html 'Url copied to clipbboard'})
+                            M.toast({html: 'Url copied to clipbboard'})
                         })
                     },
-                    copyToClipboard function(str){
+                    copyToClipboard: function(str){
                         var el = document.createElement('textarea');
                         el.value = str;
                         el.setAttribute('readonly', '');
@@ -1402,109 +1402,109 @@ head
                         document.execCommand('copy');
                         document.body.removeChild(el);
                     },
-                    url {                        
-                        get function(_name){
-                            return decodeURIComponent((new RegExp('[&]' + _name.toLowerCase() + '=' + '([^&;]+)(&#;$)').exec(location.search.toLowerCase())[,])[1].replace(+g, '%20'))null;
+                    url: {                        
+                        get: function(_name){
+                            return decodeURIComponent((new RegExp('[?|&|]' + _name.toLowerCase() + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search.toLowerCase())||[,""])[1].replace(/\+/g, '%20'))||null;
                         },
-                        set function(_name){
+                        set: function(_name){
 
                         }
                     },
-                    app {
-                        zoom {
-                            get function(){
+                    app: {
+                        zoom: {
+                            get: function(){
                                 var _app = APP
                                 return _app.data.mapView.zoom
                             },
-                            set function(_zoom){
+                            set: function(_zoom){
                                 var _app = APP
                                 if (_zoom != null){
                                     _app.data.mapView.zoom = _zoom
                                 }
                             }
                         },
-                        center {
-                            get function(){
+                        center: {
+                            get: function(){
                                 var _app = APP
-                                return _app.data.mapView.center.latitude + , + _app.data.mapView.center.longitude
+                                return _app.data.mapView.center.latitude + "," + _app.data.mapView.center.longitude
                             },
-                            set function(_latLngString){
+                            set: function(_latLngString){
                                 var _app = APP
                                 if (_latLngString != null){
-                                    _app.data.mapView.center = [_latLngString.split(,)[1], _latLngString.split(,)[0]]                            
+                                    _app.data.mapView.center = [_latLngString.split(",")[1], _latLngString.split(",")[0]]                            
                                 }
                             }
                         },
-                        basemap {
-                            get function(){
+                        basemap: {
+                            get: function(){
                                 var _app = APP
                                 return _app.data.map.basemap.id
                             },
-                            set function(_basemap){
+                            set: function(_basemap){
                                 var _app = APP
-                                Esri basemaps
-                                if (_basemap != null && _basemap.toLowerCase().substr(0,8) != nearmap_){
+                                //Esri basemaps
+                                if (_basemap != null && _basemap.toLowerCase().substr(0,8) != "nearmap_"){
                                     _app.data.map.basemap = _basemap
 
-                                Nearmap Aerials
+                                //Nearmap Aerials
                                 }else{
                                     if (_basemap != null){
                                         var _formattedDate = _basemap.substr(8,4) + '-' + _basemap.substr(12,2) + '-' + _basemap.substr(14,2)
-                                        document.querySelector('[title=Lewisville Aerials (' +  _formattedDate + ')]').click()
+                                        document.querySelector('[title="Lewisville Aerials: (' +  _formattedDate + ')"]').click()
                                     }
                                 }
                             }
                         },
-                        layers {
-                            get function(){
+                        layers: {
+                            get: function(){
                                 var _app = APP
                                 var _layerIds = []
                                 
                                 Object.keys(_app.data.layers).forEach(function(_lyr){
                                     var _layerSettings = _app.data.layersFromServer.filter(function(s){
-                                        return s.id == _lyr.replace(lyr_,)
+                                        return s.id == _lyr.replace("lyr_","")
                                     })[0]
                                     
 
                                     if (_app.data.layers[_lyr].visible == true && _lyr.length == 8 && _layerSettings.openonload != true){     
-                                        console.log('loading first', _lyr)                                   
-                                        _layerIds.push(_lyr.replace(lyr_,))
+                                        //console.log('loading first', _lyr)                                   
+                                        _layerIds.push(_lyr.replace("lyr_",""))
                                     }
                                     else if (_lyr.length == 8 && _layerSettings.openonload != true){     
-                                        console.log('loading second', _lyr)                                   
-                                        _layerIds.push(_lyr.replace(lyr_,))
+                                        //console.log('loading second', _lyr)                                   
+                                        _layerIds.push(_lyr.replace("lyr_",""))
                                     }
 
                                 })
 
-                                console.log(_layerIds.join(,))
-                                return _layerIds.join(,)
+                                //console.log(_layerIds.join(","))
+                                return _layerIds.join(",")
                             },
-                            set function(_layers,_timeout){
+                            set: function(_layers,_timeout){
                                 var _app = APP                                
                                 if (_layers != null){
-                                    _layers.split(,).forEach(function(_lyrId){
+                                    _layers.split(",").forEach(function(_lyrId){
                                         setTimeout(function(){
-                                            var _element = dom.byId(lyr_ + _lyrId)
+                                            var _element = dom.byId("lyr_" + _lyrId)
                                             if (_element != null){
-                                                dom.byId(lyr_ + _lyrId).click()  
+                                                dom.byId("lyr_" + _lyrId).click()  
                                             }
-                                        },(_timeout  500))                                                                          
+                                        },(_timeout || 500))                                                                          
                                     })
                                 }
                             }
                         }
                     }
                 }
-            } end return
-        })() end APP
+            } //end return
+        })() //end APP
         
-        Master init()
+        //Master init()
         APP.init();
 
-	}) end REQUIRE    
+	}) //end REQUIRE    
 
-	Materialize widget initialization
+	//Materialize widget initialization
 	document.addEventListener('DOMContentLoaded', function() {
     	var elems = document.querySelector('.collapsible');
     	var instances = M.Collapsible.init(elems);
@@ -1519,71 +1519,71 @@ head
         var _tabs_instances = M.Tabs.init(_tabs);
 
  	});
-  script
+  </script>
 
-head
-body
-	!--Navbar--
-    nav
-        div class=nav-wrapper style=background-color#5E2590;
-                a href=# class=brand-logo style=margin-left 1vw;font-size 1.5em;City of Lewisville small class=yellow-text hide-on-med-and-down(GIS)smalla
-            a href=# data-target=mobile-demo class=sidenav-triggeri class=material-iconsmenuia
-            ul class=right hide-on-med-and-down
-                lia class=username grey-text lighten-5 href=httpsmaps.cityoflewisville.com-ali
-                lia class=saveButton href=i class=material-icons rightsavei Saveali
-            ul
-        div
-    nav
+</head>
+<body>
+	<!--Navbar-->
+    <nav>
+        <div class="nav-wrapper" style="background-color:#5E2590;">
+                <a href="#" class="brand-logo" style="margin-left: 1vw;font-size: 1.5em;">City of Lewisville <small class="yellow-text hide-on-med-and-down">(GIS)</small></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="username grey-text lighten-5" href="https://maps.cityoflewisville.com/">-</a></li>
+                <li><a class="saveButton" href=""><i class="material-icons right">save</i> Save</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    !--Mobile Menu--
-    ul class=sidenav id=mobile-demo
-        lia class=username grey-text lighten-5 href=httpsmaps.cityoflewisville.com-ali
-        lia class=saveButton href=i class=material-icons rightsavei Saveali               
-    ul
+    <!--Mobile Menu-->
+    <ul class="sidenav" id="mobile-demo">
+        <li><a class="username grey-text lighten-5" href="https://maps.cityoflewisville.com/">-</a></li>
+        <li><a class="saveButton" href=""><i class="material-icons right">save</i> Save</a></li>               
+    </ul>
 
-    !--Loading--
-    div class=progress yellow
-        div class=indeterminatediv
-    div
+    <!--Loading-->
+    <div class="progress yellow">
+        <div class="indeterminate"></div>
+    </div>
 
-	!--Main container--
-	div id=mainContainer class=row
-        !--Mobile Tabs--
-        ul class=tabs tabs-fixed-width z-depth-1 hide-on-large-only
-            li class=taba href=#Map class=active blue-textMapali
-            li class=taba href=#Layers class=blue-textLayersali
-        ul
-        div id=Map class=col s12 hide-on-large-only
-            div id=mapContainerSmall class=row style=margin-bottom0;div
-        div
-        div id=Layers class=col s12 hide-on-large-only
-            div id=layersContainerSmall class=rowdiv
-        div
+	<!--Main container-->
+	<div id="mainContainer" class="row">
+        <!--Mobile Tabs-->
+        <ul class="tabs tabs-fixed-width z-depth-1 hide-on-large-only">
+            <li class="tab"><a href="#Map" class="active blue-text">Map</a></li>
+            <li class="tab"><a href="#Layers" class="blue-text">Layers</a></li>
+        </ul>
+        <div id="Map" class="col s12 hide-on-large-only">
+            <div id="mapContainerSmall" class="row" style="margin-bottom:0;"></div>
+        </div>
+        <div id="Layers" class="col s12 hide-on-large-only">
+            <div id="layersContainerSmall" class="row"></div>
+        </div>
 
-        !--Map container--
-        div id=mapContainerLarge class=col m9 s12 style=padding0;margin0;
-            div class=row style=padding0;margin0;
-                div id=viewDiv class=col s12div
+        <!--Map container-->
+        <div id="mapContainerLarge" class="col m9 s12" style="padding:0;margin:0;">
+            <div class="row" style="padding:0;margin:0;">
+                <div id="viewDiv" class="col s12"></div>
 
-            div
-        div		
+            </div>
+        </div>		
        
-		!--Layer-List container--
-		div id=layersContainerLarge class=col m3 s12
-            ul id=layerToggle class=collapsibleul					
-		div       
+		<!--Layer-List container-->
+		<div id="layersContainerLarge" class="col m3 s12">
+            <ul id="layerToggle" class="collapsible"></ul>					
+		</div>       
 
-    div !--end main container--
+    </div> <!--end main container-->
 
-    !--============================--
-    !--Google Analytics--
-    script async src=httpswww.googletagmanager.comgtagjsid=UA-35815214-10script
-    script
-        window.dataLayer = window.dataLayer  [];
+    <!--============================-->
+    <!--Google Analytics-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35815214-10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-35815214-10');
-    script
+    </script>
 
-body
-html
+</body>
+</html>
