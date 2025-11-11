@@ -9,12 +9,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="manifest" href="images/site201808021112.webmanifest.json">
   <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#603cba">
   <meta name="theme-color" content="#ffffff">
   
-  <!-- google fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -107,11 +106,10 @@
   </style>
   
   <script src="scripts/dragdroptouch.js"></script>
-  <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
-  <script src="https://js.arcgis.com/4.21/"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.24/"></script>
   
   <script>
-  
 	//ArcGIS Javascript API - Dojo REQUIRE for libraries
     require([
 	  "esri/Map",
@@ -195,17 +193,17 @@
                     _app.createWidget_BasemapGallery()
                     _app.createWidget_ProgressBar()
                     _app.createWidget_Search()
-                    _app.createNearmapAerials()
                     _app.createWidget_MeasurementIn2D()
                     _app.createWidget_Print()
                     _app.createWidget_Streetview()		
                     _app.createWidget_SaveSettings()	 
-                    _app.createWidget_MapTypeButtons()
                     _app.createWidget_Legend()
                     _app.createWidget_Marker()
                     _app.createWidget_Sketch()
-                    _app.createWidget_Compass()
                     _app.setIsEmployee()
+                    _app.createNearmapAerials()
+                    _app.createWidget_MapTypeButtons()
+                    _app.createWidget_Compass()
                     _app.get_GroupsList(
                         function(){
                             _app.get_LayerList({avlOnly: false,includeEmployeeLayers: _app.data.isEmployee
@@ -238,43 +236,12 @@
                 },
                 createWidget_ProgressBar: function(){
                     var _app = this
-
                     _app.data.mapView.watch("updating",function(_event){
                         //query(".progress").style("display",(_event == true ? "block" : "none"))
                         document.querySelectorAll(".progress").forEach(function(node) {
                             node.style.display = (_event == true ? "block" : "none");
                         });
                     })
-                },
-                createWidget_MapTypeButtons: function(){
-                    var _app = this
-
-                    var _mapTypeButtonUI = ''
-                    _mapTypeButtonUI += '<div>'
-                    _mapTypeButtonUI += '<div class="map-type-button" id="mapTypeToggle_Map">Map</div>'
-                    _mapTypeButtonUI += '<div class="map-type-button" id="mapTypeToggle_Sat">Satellite</div>'
-                    _mapTypeButtonUI += '<div class="map-type-button" id="mapTypeToggle_Lew" title="Historical aerials are in the basemap widget ?">Lewisville Aerials</div>'
-                    _mapTypeButtonUI += '</div>'
-
-                    var _mapButton = domConstruct.toDom(_mapTypeButtonUI)                    
-                    
-                    //Remove the zoom buttons
-                    _app.data.mapView.ui.add(_mapButton, "top-left",0)
-                    _app.data.mapView.ui.move("zoom", "bottom-left",1)
-                    
-                    //mapTypeToggle_Map
-                    document.getElementById("mapTypeToggle_Map").onclick = function(){
-                        _app.data.map.basemap = _app.data.basemap
-                    }
-                    //mapTypeToggle_Sat
-                    document.getElementById("mapTypeToggle_Sat").onclick = function(){
-                        _app.data.map.basemap = "satellite"
-                    }                        
-                    //mapTypeToggle_Lew
-                    document.getElementById("mapTypeToggle_Lew").onclick = function(){
-                        document.querySelector('[title="Lewisville Aerials: (' +  _app.data.mostRecentAerialDate + ')"]').click()
-                    }
-                   
                 },
                 createWidget_Search: function(){
                     var _app = this
@@ -484,7 +451,6 @@
                 },
                 createWidget_Legend: function(){
                     var _app = this
-
                     var _expand = new Expand({
                         content: new Legend({
                             view: _app.data.mapView,
@@ -598,56 +564,7 @@
 
                         });
                     })
-                },
-                createWidget_Compass(){
-                    var _app = this
-                    var compass = new Compass({
-                        view: _app.data.mapView
-                        });
-
-                    // adds the compass to the top left corner of the MapView
-                    _app.data.mapView.ui.add(compass, "top-left");
-
-                },
-                createNearmapAerials: function(){
-                    //https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap
-                    //https://gist.github.com/izevaka/32727112d4bd876d8c4bae2d96703b0b
-                    var _app = this
-
-                    //Get aerial dates and api token
-                    var _url = "https://query.cityoflewisville.com/v2/?webservice=NearmapTicketAndDates"
-                    
-                    esriRequest(_url).then(function(_response){		
-
-                        var _ticket = _response.data[0][0].ticket
-                        var _aerialDates = JSON.parse(_response.data[0][0].aerialdates)
-                        
-                        //Set _app.data.mostRecentAerialDate for other functions to reference
-                        _app.data.mostRecentAerialDate = _aerialDates.map(function(e) { return e.date.toString().replace(/\./g,'-'); }).sort().reverse()[0]
-                       
-                       
-                        _aerialDates.forEach(function(_a){
-                            var _date = _a.date.toString().replace(/\./g,'')
-                            var _dateFormatted = _a.date.toString().replace(/\./g,'-')
-
-                            //WebTileLayer
-                            var _nearmap_WebTileLayer = new WebTileLayer({
-                                urlTemplate: "https://us{subDomain}.nearmap.com/maps/?z={level}&x={col}&y={row}&nml=V&version=2&nmd="+ _date +"&ticket=" + _ticket,
-                                subDomains: ["0", "1", "2", "3"],
-                                copyright: "Nearmap"
-                            })
-
-                            //Add to basemap gallery					
-                            _app.data.widgets.basemapGallery_BasemapSource.basemaps.push(
-                                new Basemap({
-                                    baseLayers: [_nearmap_WebTileLayer],
-                                    title: "Lewisville Aerials: (" + _dateFormatted + ")",
-                                    id: "nearmap_" + _date
-                                })
-                            )
-                        })
-                    })
-                },              
+                },    
                 createWidget_MeasurementIn2D: function() {
                     var _app = this;
 
@@ -753,14 +670,13 @@
                         }
                     }
                 },
-
                 createWidget_Print: function(){
                     var _app = this
                     
                     var _widget_Print = new Print({
                         view: _app.data.mapView,
                         container: document.createElement("div"),
-                        printServiceUrl: "https://webadapt1.cityoflewisville.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
+                        printServiceUrl: "https://utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
                         templateOptions: {
                             scaleEnabled : true
 
@@ -1043,7 +959,7 @@
                             try {
                                 var parsedTemplate = JSON.parse(templateString);
                                 if (parsedTemplate.expressionInfos) {
-                                    //console.log("Parsed popup template", parsedTemplate.expressionInfos["0"].expression);
+                                    // console.log("Parsed popup template", parsedTemplate.expressionInfos["0"].expression);
                                     parsedTemplate.expressionInfos["0"].expression = parsedTemplate.expressionInfos["0"].expression.replace(/_feature./g, '$feature.');
                                 }
                                 return parsedTemplate;
@@ -1314,7 +1230,6 @@
                 setIsEmployee: function(){
                     var _app = this
                     //console.log(window)
-                    //console.log(window.location.href)
 
                     if (typeof window.localStorage.colEmail != "undefined"){
                         _app.data.isEmployee = true
@@ -1334,6 +1249,87 @@
                         }
                     }
                 },
+                createNearmapAerials: function(){
+                    //https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap
+                    //https://gist.github.com/izevaka/32727112d4bd876d8c4bae2d96703b0b
+                    var _app = this
+                    if (_app.data.isEmployee){
+                        //Get aerial dates and api token
+                        var _url = "https://query.cityoflewisville.com/v2/?webservice=NearmapTicketAndDates"
+                        
+                        esriRequest(_url).then(function(_response){
+                            var _ticket = _response.data[0][0].ticket
+                            var _aerialDates = JSON.parse(_response.data[0][0].aerialdates)
+                            
+                            //Set _app.data.mostRecentAerialDate for other functions to reference
+                            _app.data.mostRecentAerialDate = _aerialDates.map(function(e) { return e.date.toString().replace(/\./g,'-'); }).sort().reverse()[0]
+                                            
+                            _aerialDates.forEach(function(_a){
+                                var _date = _a.date.toString().replace(/\./g,'')
+                                var _dateFormatted = _a.date.toString().replace(/\./g,'-')
+
+                                //WebTileLayer
+                                var _nearmap_WebTileLayer = new WebTileLayer({
+                                    urlTemplate: "https://us{subDomain}.nearmap.com/maps/?z={level}&x={col}&y={row}&nml=V&version=2&nmd="+ _date +"&ticket=" + _ticket,
+                                    subDomains: ["0", "1", "2", "3"],
+                                    copyright: "Nearmap"
+                                })
+
+                                //Add to basemap gallery					
+                                _app.data.widgets.basemapGallery_BasemapSource.basemaps.push(
+                                    new Basemap({
+                                        baseLayers: [_nearmap_WebTileLayer],
+                                        title: "Lewisville Aerials: (" + _dateFormatted + ")",
+                                        id: "nearmap_" + _date
+                                    })
+                                )
+                            })
+                        }) 
+                    }                     
+                   
+                },
+                createWidget_MapTypeButtons: function(){
+                    var _app = this
+
+                    var _mapTypeButtonUI = ''
+                    _mapTypeButtonUI += '<div>'
+                    _mapTypeButtonUI += '<div class="map-type-button" id="mapTypeToggle_Map">Map</div>'
+                    _mapTypeButtonUI += '<div class="map-type-button" id="mapTypeToggle_Sat">Satellite</div>'
+                    if(_app.data.isEmployee){
+                        _mapTypeButtonUI += '<div class="map-type-button" id="mapTypeToggle_Lew" title="Historical aerials are in the basemap widget ?">Lewisville Aerials</div>'
+                    }
+                    _mapTypeButtonUI += '</div>'
+
+                    var _mapButton = domConstruct.toDom(_mapTypeButtonUI)                    
+                    
+                    //Remove the zoom buttons
+                    _app.data.mapView.ui.add(_mapButton, "top-left",0)
+                    _app.data.mapView.ui.move("zoom", "bottom-left",1)
+                    
+                    //mapTypeToggle_Map
+                    document.getElementById("mapTypeToggle_Map").onclick = function(){
+                        _app.data.map.basemap = _app.data.basemap
+                    }
+                    //mapTypeToggle_Sat
+                    document.getElementById("mapTypeToggle_Sat").onclick = function(){
+                        _app.data.map.basemap = "satellite"
+                    }
+                    
+                    if(_app.data.isEmployee){
+                        //mapTypeToggle_Lew
+                        document.getElementById("mapTypeToggle_Lew").onclick = function(){
+                            document.querySelector('[title="Lewisville Aerials: (' +  _app.data.mostRecentAerialDate + ')"]').click()
+                        }
+                    }                  
+                },
+                createWidget_Compass(){
+                    var _app = this
+                    var compass = new Compass({
+                        view: _app.data.mapView
+                        });
+                    // adds the compass to the top left corner of the MapView
+                    _app.data.mapView.ui.add(compass, "top-left");
+                },   
                 isJSON: function(jsonString){
                     try {
                         var o = JSON.parse(jsonString);
@@ -1361,7 +1357,6 @@
                         var _app = APP
                         var _this = _app.settings
                         var _baseUrl = window.location.origin + window.location.pathname
-
                         var _parameters =  "&zoom=" + _this.app.zoom.get() + "&amp;center=" + _this.app.center.get() + "&basemap=" + _this.app.basemap.get() + "&layers=" + _this.app.layers.get()
                         
                         var _html = ' <small class="hide-on-med-and-down">'
@@ -1442,13 +1437,15 @@
                             },
                             set: function(_basemap){
                                 var _app = APP
+
+                                
                                 //Esri basemaps
                                 if (_basemap != null && _basemap.toLowerCase().substr(0,8) != "nearmap_"){
                                     _app.data.map.basemap = _basemap
 
                                 //Nearmap Aerials
                                 }else{
-                                    if (_basemap != null){
+                                    if (_basemap != null && _app.data.isEmployee){
                                         var _formattedDate = _basemap.substr(8,4) + '-' + _basemap.substr(12,2) + '-' + _basemap.substr(14,2)
                                         document.querySelector('[title="Lewisville Aerials: (' +  _formattedDate + ')"]').click()
                                     }
